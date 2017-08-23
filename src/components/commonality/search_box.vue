@@ -1,13 +1,13 @@
 <template>
   <div class="search wbg">
-    <input type="text" placeholder="请输入搜索内容" class="search_box"><!--
-      --><div class="search_btn"><a href="javascript:;">搜索</a></div>
+    <input type="text" placeholder="请输入搜索内容" class="search_box">
+    <div class="search_btn"><a href="javascript:;">搜索</a></div>
   </div>
 </template>
 
 <script>
     export default {
-
+        
     }
 </script>
 

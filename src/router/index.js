@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import app from '../App.vue'
 import index from '../components/index.vue'
 import fullView from '../components/main/fullView.vue'
 import look from '../components/main/lookInto.vue'
@@ -12,23 +13,22 @@ import Search from '../components/main/Search.vue'
 import obor from '../components/main/obor.vue'
 import environment from '../components/main/environment.vue'
 import message from '../components/main/message.vue'
+
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
-  base:__dirname,
-  routes: [
-    {
+  mode: 'history',
+  base: __dirname,
+  routes: [{
       path: '/',
-      name: 'index',
-      component: index,
+      name:"app"
     },
     {
-      path: '/look',
-      component: look,
-      children:[
-        {
-          path: '/',
+      path: '/body',
+      component: index,
+      redirect: '/body/look',
+      children: [{
+          path: 'look',
           name: 'fullView',
           component: fullView,
         },
@@ -79,6 +79,5 @@ export default new Router({
         }
       ]
     },
-
   ]
 })
