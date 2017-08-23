@@ -9,7 +9,6 @@
           <router-link to="/look" class="header_btn">管理环境</router-link>
         </div>
       </div>
-
     </div>
 </template>
 
@@ -19,7 +18,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
   .header{
     width:100%;
     height: 50px;

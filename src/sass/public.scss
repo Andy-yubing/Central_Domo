@@ -6,5 +6,22 @@ li{list-style:none;}
 input,select,textarea{outline:none;border:none;background:none;}
 a{
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+
+body{
+  background: #EEE;
+}
+.wbg{
+  width:95%;
+  height: 80px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px 15px 15px 50px;
+}
+.clearFix:after{
+  content: "";
+  display: block;
+  clear: both;
 }

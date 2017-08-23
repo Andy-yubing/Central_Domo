@@ -15,6 +15,8 @@ import message from '../components/main/message.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
+  base:__dirname,
   routes: [
     {
       path: '/',
