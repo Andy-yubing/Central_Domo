@@ -1,6 +1,7 @@
 <template>
     <div class="body_left">
       <h3 class="text-center body_left_title">管理洞察</h3>
+      <a class="body_left_data" href="javascript:;">数据大屏</a>
       <el-collapse v-model="activeNames" @change="handleChange">
         <el-collapse-item title="产品选择" name="1" class="body_left_el">
              <router-link to="/body/look">产业全景</router-link>
@@ -43,7 +44,14 @@
       background-color: #FFF;
       line-height: 50px;  
       color: #FFF;
-      background-color: #2d7662;  
+      background-color: #2d7662; 
+    }
+    .body_left_data{
+      display: block;
+      text-align: center; 
+      line-height: 50px; 
+      background-color: #FFF;  
+      color: #355699; 
     }
     position: absolute;
     left: 25px;

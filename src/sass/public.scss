@@ -28,6 +28,9 @@ body{
   background-color: #2d7662;
   color: #fff !important;  
   &.header_btn {
-   background-color: #355699;  
+    background-color: #355699; 
+    &.router-link-exact-active{
+      background-color: #263967;  
+    }
   }
 }
