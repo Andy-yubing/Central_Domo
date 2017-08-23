@@ -23,15 +23,7 @@
           </router-link>
         </ul>
         <ul>
-<<<<<<< .mine
-          <li>HR管理</li>
-          <li>企业对标</li>
-          <li>企业智搜</li>
 
-
-
-
-=======
           <li class="big_tittle">HR管理</li>
           <router-link to="/look/fuseki">
             <li>企业对标</li>
@@ -39,21 +31,9 @@
           <router-link to="/look/Search">
             <li>企业智搜</li>
           </router-link>
->>>>>>> .theirs
         </ul>
         <ul>
-<<<<<<< .mine
-          <li>企业聚焦</li>
-          <li>一带一路</li>
-          <li>政策环境</li>
-          <li>热点信息</li>
 
-
-
-
-
-
-=======
           <li class="big_tittle">企业聚焦</li>
           <router-link to="/look/obor">
             <li>一带一路</li>
@@ -64,7 +44,6 @@
           <router-link to="/look/message">
             <li>热点信息</li>
           </router-link>
->>>>>>> .theirs
         </ul>
       </div>
       <div class="look_content">
