@@ -32,10 +32,6 @@ module.exports = {
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter'),
-          loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
         }
       },
       {
@@ -43,10 +39,7 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
-      {
-        test: /\.scss$/,
-        loader: 'vue-style-loader!css-loader!sass-loader',
-      },
+      
       {
         test: /\.js$/,
         loader: 'babel-loader',

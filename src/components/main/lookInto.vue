@@ -33,7 +33,7 @@
           </router-link>
         </ul>
         <ul>
-
+  
           <li class="big_tittle">企业聚焦</li>
           <router-link to="/look/obor">
             <li>一带一路</li>
@@ -50,7 +50,7 @@
         <router-view></router-view>
       </div>
     </div>
-
+    
     <Footer></Footer>
   </div>
 </template>
