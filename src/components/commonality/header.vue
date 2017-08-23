@@ -5,11 +5,9 @@
         <img src="../../images/logo.png" alt="">
       </div>
       <div class="header_list">
-        <router-link to="/" class="header_btn">首页</router-link>
-        <router-link to="/body/look" class="header_btn">管理洞察</router-link>
-        <router-link to="/look" class="header_btn">管理舆情</router-link>
-        <router-link to="/look" class="header_btn">管理风控</router-link>
-        <router-link to="/look" class="header_btn">管理环境</router-link>
+        
+        <router-link v-for="(item,index) in list" :to= "item.link" class="header_btn" @click.native="addClass(index)" :class="{active:avtiveAdd==index}">{{item.name}}</router-link>
+       
       </div>
       <div class="login">
         <img src="../../images/login.png" alt="">
@@ -20,7 +18,18 @@
 
 <script>
   export default {
-
+      data(){
+        return {
+          list:[{name:"首页",link:"/"},{name:"管理洞察",link:"/body/look"},{name:"管理舆情",link:"javascript:;"},{name:"管理风控",link:"javascript:;"},{name:"管理环境",link:"javascript:;"}],
+           avtiveAdd:0
+        }
+      },
+      methods:{
+        addClass(index){
+          console.log(index);
+           this.avtiveAdd = index;
+        }
+      }
   }
 </script>
 
@@ -68,6 +77,10 @@
         line-height: 60px;
         font-size: 12px;
         color: #FFF; 
+        cursor: pointer;
+        &.active{
+          background-color: #263967; 
+        }
       }
       .header_btn:hover{
         background-color: #2a3f71;
