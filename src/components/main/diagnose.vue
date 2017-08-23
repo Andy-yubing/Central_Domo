@@ -19,6 +19,10 @@
 </script>
 
 <style lang="scss">
+  .warPer{
+    width: 1200px;
+    float: left;
+  }
   .create_btn{
     width: 120px;
     height: 40px;

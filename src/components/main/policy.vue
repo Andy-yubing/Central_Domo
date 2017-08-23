@@ -140,8 +140,8 @@
 
 <style lang="scss">
   .warPer{
-    width: 900px;
-    float: right;
+    width: 1200px;
+    float: left;
   }
   .bottom_line{
     height: 50px;
@@ -185,7 +185,7 @@
       }
     }
     li:hover{
-      color:#355699
+      color:#3047BF
     }
   }
   .active{

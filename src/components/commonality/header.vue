@@ -38,9 +38,9 @@
       height:45px;
       line-height: 60px;
       text-align: center;
-      padding-top: 5px;
+      padding-top: 8px;
       img{
-        width: 115px;
+        width: 100px;
         height:30px;
         display: inline-block;
       }
