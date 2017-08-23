@@ -56,8 +56,8 @@
 </template>
 
 <script>
-  import Header from "../main/header.vue"
-  import Footer from "../main/footer.vue"
+  import Header from "./T_header.vue"
+  import Footer from "./T_footer.vue"
   export default {
     components:{
       Header:Header,

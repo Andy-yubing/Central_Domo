@@ -25,7 +25,6 @@ export default new Router({
     },
     {
       path: '/look',
-      name: 'look',
       component: look,
       children:[
         {

@@ -1,33 +1,31 @@
 <template>
     <div>
-     <Header></Header>
+     <T_Header></T_Header>
     <!--  <div class="content">index_content</div> -->
      <Left></Left>
      <router-view></router-view>
-     <Footer></Footer>
+     <T_Footer></T_Footer>
     </div>
 </template>
 
 <script>
-  import Header from "./main/header.vue";
-  import Footer from "./main/footer.vue";
+  import T_Header from "./main/T_header.vue";
+  import T_Footer from "./main/T_footer.vue";
   import left from "./main/left.vue";
   export default {
     components:{
-      Header:Header,
-      Footer:Footer,
+      T_Header:T_Header,
+      T_Footer:T_Footer,
       Left:left,
     }
   }
 </script>
 
-<style>
+<style lang="scss">
   body{
-    background-color: white;
     .content{
       width: 100%;
       height: 800px;
-      background-color: #D2D2D2;
     }
   }
 
