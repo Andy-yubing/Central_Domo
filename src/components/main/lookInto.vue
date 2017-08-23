@@ -6,7 +6,6 @@
         <div class="look_tittle">管理洞察</div>
         <ul>
           <li>产业选择</li>
-
           <li>产业布局</li>
           <li>产业政策</li>
           <li>产业诊断</li>
