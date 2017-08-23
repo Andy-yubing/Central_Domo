@@ -5,28 +5,50 @@
       <div class="left_btn">
         <div class="look_tittle">管理洞察</div>
         <ul>
-          <li>产业选择</li>
-
-          <li>产业布局</li>
-          <li>产业政策</li>
-          <li>产业诊断</li>
-          <li>产业报告</li>
+          <li class="big_tittle">产业选择</li>
+          <router-link to="/look">
+            <li>产业全景</li>
+          </router-link>
+          <router-link to="/look/layout">
+            <li>产业布局</li>
+          </router-link>
+          <router-link to="/look/policy">
+            <li>产业政策</li>
+          </router-link>
+          <router-link to="/look/diagnose">
+            <li>产业诊断</li>
+          </router-link>
+          <router-link to="/look/report">
+            <li>产业报告</li>
+          </router-link>
         </ul>
         <ul>
-          <li>HR管理</li>
-
-          <li>企业对标</li>
-          <li>企业智搜</li>
+          <li class="big_tittle">HR管理</li>
+          <router-link to="/look/fuseki">
+            <li>企业对标</li>
+          </router-link>
+          <router-link to="/look/Search">
+            <li>企业智搜</li>
+          </router-link>
         </ul>
         <ul>
-          <li>企业聚焦</li>
-
-          <li>一带一路</li>
-          <li>政策环境</li>
-          <li>热点信息</li>
+          <li class="big_tittle">企业聚焦</li>
+          <router-link to="/look/obor">
+            <li>一带一路</li>
+          </router-link>
+          <router-link to="/look/environment">
+            <li>政策环境</li>
+          </router-link>
+          <router-link to="/look/message">
+            <li>热点信息</li>
+          </router-link>
         </ul>
       </div>
+      <div class="look_content">
+        <router-view></router-view>
+      </div>
     </div>
+
   <Footer></Footer>
 </div>
 </template>
@@ -49,6 +71,7 @@
     background-color: #D2D2D2;
   }
   .left_btn{
+    float: left;
     width: 200px;
     height: 500px;
     background-color: #fff;
@@ -60,5 +83,12 @@
     background-color: green;
     line-height: 50px;
     color: white;
+  }
+  .look_content{
+    float: left ;
+  }
+  .big_tittle{
+    font-size: 18px;
+    font-weight: bold;
   }
 </style>
