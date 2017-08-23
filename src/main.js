@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-//import "./css/reset.css"
-import "./sass/reset.scss"
+import "./css/reset.css"
+import "./css/index.css"
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -33,7 +33,7 @@
           </router-link>
         </ul>
         <ul>
-  
+
           <li class="big_tittle">企业聚焦</li>
           <router-link to="/look/obor">
             <li>一带一路</li>
@@ -50,7 +50,7 @@
         <router-view></router-view>
       </div>
     </div>
-    
+
     <Footer></Footer>
   </div>
 </template>
@@ -69,15 +69,19 @@
 <style>
   .content{
     width: 100%;
-    height: 800px;
-    background-color: #D2D2D2;
+    overflow: hidden;
   }
   .left_btn{
     float: left;
-    width: 200px;
+    width: 15%;
     height: 500px;
     background-color: #fff;
     text-align: center;
+    margin-right: 2%;
+  }
+  .look_content{
+    width: 80%;
+    float: left ;
   }
   .look_tittle{
     width:100%;
@@ -86,9 +90,7 @@
     line-height: 50px;
     color: white;
   }
-  .look_content{
-    float: left ;
-  }
+
   .big_tittle{
     font-size: 18px;
     font-weight: bold;
