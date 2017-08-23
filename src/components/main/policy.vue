@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="warPer">
       <div class="wbg">
         <p>产业全国分布</p>
       </div>
@@ -139,6 +139,10 @@
 </script>
 
 <style lang="scss">
+  .warPer{
+    width: 900px;
+    float: right;
+  }
   .bottom_line{
     height: 50px;
     width: 100%;
