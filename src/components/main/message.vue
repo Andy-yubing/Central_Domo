@@ -27,11 +27,7 @@
 
   import search from '../commonality/search_box.vue'
 
-  const cityOptions = [
-    '城投', '物流', '旅游', '建筑工程','公用事业',
-    '电子', '石油化工', '房地产','现代服务', '机械',
-    '矿业', '化工'
-  ];
+  const cityOptions = ['城投', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
   export default {
     data() {
       return {
@@ -48,10 +44,11 @@
 <style>
   .left_box{
     float: left;
-    height:100%;
+    margin-right: 20px;
   }
   .right_check{
     float: left;
+    width:90%;
   }
   .first_tittle{
     height: 50px;

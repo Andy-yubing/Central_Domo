@@ -21,12 +21,12 @@
 <style>
   @import "../sass/reset.scss";
   body{
-      background-color: #000;
-      .content{
-      width: 100%;
-      height: 800px;
-      background-color: #D2D2D2;
-    }
+    background-color: white;
+  .content{
+    width: 100%;
+    height: 800px;
+    background-color: #D2D2D2;
   }
-  
+  }
+
 </style>

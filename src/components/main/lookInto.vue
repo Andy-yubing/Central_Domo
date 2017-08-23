@@ -71,13 +71,16 @@
     width: 100%;
     overflow: hidden;
   }
-  .left_btn{
+  .left_btn {
     float: left;
     width: 15%;
     height: 500px;
     background-color: #fff;
     text-align: center;
     margin-right: 2%;
+  }
+  .left_btn a{
+    color: black;
   }
   .look_content{
     width: 80%;
@@ -89,6 +92,7 @@
     background-color: green;
     line-height: 50px;
     color: white;
+
   }
 
   .big_tittle{

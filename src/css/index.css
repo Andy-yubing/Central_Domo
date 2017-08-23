@@ -1,0 +1,15 @@
+body{
+  background: #EEE;
+}
+.wbg{
+  width:95%;
+  height: 80px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px 15px 15px 50px;
+}
+.clearFix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
