@@ -15,7 +15,6 @@
         <img src="../../images/login.png" alt="">
       </div>
     </div>
-
   </div>
 </template>
 
@@ -68,6 +67,7 @@
         text-align: center;
         line-height: 60px;
         font-size: 12px;
+        color: #FFF; 
       }
       .header_btn:hover{
         background-color: #2a3f71;

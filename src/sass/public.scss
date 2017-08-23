@@ -6,16 +6,13 @@ li{list-style:none;}
 input,select,textarea{outline:none;border:none;background:none;}
 a{
   text-decoration: none;
-  //color: white;
 }
-
 
 body{
-  background: #f7f7f7;
+  background-color: #f7f7f7; 
 }
-.wbg{
-  width:95%;
-  background-color: white;
+.wbg{ 
+  //background-color: white;
   margin-bottom: 10px;
   padding: 15px 15px 15px 50px;
 }
@@ -23,4 +20,14 @@ body{
   content: "";
   display: block;
   clear: both;
+}
+.text-center{
+  text-align: center;
+}
+.router-link-active{
+  background-color: #2d7662;
+  color: #fff !important;  
+  &.header_btn {
+   background-color: #355699;  
+  }
 }
