@@ -19,12 +19,12 @@
 <style lang="scss">
   body{
     .content{
-      width: 100%;
       height: 800px;
       padding-left: 200px; 
       position: relative;
+      margin-right: 30px; 
       .content_right{
-        background-color: #fff; 
+       //background-color: #fff; 
       }
     }
   }
