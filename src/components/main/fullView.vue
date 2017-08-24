@@ -12,8 +12,25 @@
       </span>
       <span class="fullView_two_right">
             
-        </span>
+      </span>
     </div>
+    <ul class="con_msg">
+      <h3><button class="vocation-title">政策要闻</button></h3>
+      <li v-for="list in message">
+        <div class="has_float">{{list.name}}</div>
+        <div class="has_float">{{list.website}}</div>
+        <div class="has_float">{{list.time}}</div>
+      </li>
+    </ul>
+    <ul class="con_msg vocation">
+      <h3><button class="vocation-title">重点企业</button></h3>
+      <li v-for="list in list">
+        <div class="has_float has_vocation">
+          <button>{{list.btn}}</button>{{list.name}}</div>
+        <div class="has_float has_vocation">{{list.website}}</div>
+        <div class="has_float has_vocation">{{list.time}}</div>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -22,7 +39,80 @@ require('echarts/map/js/china.js')
 export default {
   data() {
     return {
+      message: [{
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        },
+        {
+          name: '39分生态改革文件相继出台“任务清单”落实',
+          website: '',
+          time: '8/15'
+        }
+      ],
+      list: [{
+          btn: '煤炭行业',
+          name: '国美新集',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '能源行业',
+          name: '西山煤业',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '能源行业',
+          name: '西山煤业',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '能源行业',
+          name: '西山煤业',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '能源行业',
+          name: '西山煤业',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '能源行业',
+          name: '西山煤业',
+          website: '',
+          time: '8/15'
+        },
 
+      ],
     }
   },
   methods: {
@@ -1249,6 +1339,74 @@ export default {
   justify-content: space-between;
   >span {
     width: 47%;
+  }
+}
+
+.con_msg {
+  margin-top: 20px;
+  background-color: #FFF;
+  li {
+    //list-style: disc;
+    line-height: 40px;
+    height: 40px;
+    .has_float {
+      text-align: center;
+      width: 30%;
+      display: inline-block;
+      font-size: 12px;
+      position: relative;
+      &:first-child {
+        text-align: left;
+        padding-left: 60px;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 35px;
+          top: 15px;
+          height: 10px;
+          width: 10px;
+          background-color: #00b6e6;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+        }
+      }
+      &.has_vocation {
+        >button {
+          margin-right: 20px;
+          background-color: #2d7662;
+          border: 0;
+          padding: 5px 10px;
+          color: #FFF;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 35px;
+          top: 15px;
+          height: 0;
+          width: 10px;
+          background-color: #00b6e6;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .vocation-title {
+    margin-left: 60px;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    background-color: #2d7662;
+    border: 0;
+    padding: 5px 10px;
+    color: #FFF;
+    font-size: 16px; 
+  }
+  li:hover {
+    color: #355699
+  }
+  &.vocation {
+    margin-top: 30px;
   }
 }
 
