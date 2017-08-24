@@ -161,6 +161,7 @@
       background-color: #f1f4fc;
     }
     li{
+      list-style: disc;
       line-height: 40px;
       height: 40px;
       .has_float{
