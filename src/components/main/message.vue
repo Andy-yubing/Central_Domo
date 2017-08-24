@@ -57,7 +57,5 @@
     line-height: 50px;
     margin-bottom: 20px;
   }
-  .warPer{
-    height: 100px;
-  }
+
 </style>

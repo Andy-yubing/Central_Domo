@@ -1,5 +1,5 @@
 <template>
-    <div class="warPer">
+    <div class="warPer clearFix">
       <div class="wbg">
         <p>产业全国分布</p>
       </div>
@@ -137,14 +137,6 @@
 </script>
 
 <style lang="scss">
-
-  .bottom_line{
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    border-bottom: 1px solid #999;
-    margin-bottom: 20px;
-  }
   .area{
     width: 100%;
     li{
@@ -183,9 +175,6 @@
       color:#355699
     }
   }
-  .active{
-    background-color: #2d7662;
-    color: white;
-  }
+
 
 </style>

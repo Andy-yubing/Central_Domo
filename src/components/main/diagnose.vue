@@ -1,7 +1,106 @@
 <template>
-    <div class="warPer">
+    <div class="warPer clearFix">
       <div class="wbg">
-        企业诊断
+        <span>企业诊断</span>
+        <div class="R_box">
+          <el-button type="primary">导出</el-button>
+          <el-button type="primary" @click="dialogTableVisible = true">产业设置</el-button>
+
+          <el-dialog title="选择企业产业组合"
+                     :visible.sync="dialogTableVisible"
+                     size="large">
+            <div>
+              <div class="bottom_line">
+                <span class="big_text">选择地区</span>
+                <div class="R_box">
+                  <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">下载产业模板</el-button>
+                  <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">提交产业模板</el-button>
+                </div>
+              </div>
+              <ul class="area clearFix">
+                <a href="javascript:;" v-for="(area,index) in areas">
+                  <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area}}</li>
+                </a>
+              </ul>
+              <div class="bottom_line">
+                <span class="big_text">产业利润</span>
+              </div>
+              <div>
+                <div class="list">
+                  <div class="F_box">
+                    <span class="sp_box">城投</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元&nbsp;
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">旅游</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元&nbsp;
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">石油化工</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="F_box">
+                    <span class="sp_box">电子</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">投资</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">建筑工程</span>
+                    <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                </div>
+              </div>
+              <div class="bottom_line">
+                <span class="big_text">当前成本</span>
+              </div>
+              <div>
+                <div class="list">
+                  <div class="F_box">
+                    <span class="sp_box">城投</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">旅游</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">石油化工</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="F_box">
+                    <span class="sp_box">电子</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">投资</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                  <div class="F_box">
+                    <span class="sp_box">建筑工程</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="dialogTableVisible = false" class="G_bg">取 消</el-button>
+              <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">提交并开始诊断</el-button>
+            </div>
+          </el-dialog>
+        </div>
       </div>
       <div class="wbg bottom_line">
         <span>产业组合平滑曲线</span>
@@ -65,7 +164,12 @@
             trigger: 'axis'
           },
           legend: {
-            data:['生成平滑曲线']
+            data:['生成平滑曲线'],
+            selected: {
+              '生成平滑曲线' : false,
+              color:'red'
+            },
+
           },
           grid: {
             left: '3%',
@@ -84,46 +188,81 @@
           },
           series: [
             {
-              name:'邮件营销',
+              name:'城投',
               type:'line',
               stack: '总量',
-              data:[120, 132, 1101, 134, 90, 1230, 210]
+              smooth: true,
+              data:[120, 132, 300, 134, 90, 200, 210]
             },
             {
-              name:'联盟广告',
+              name:'物流',
               type:'line',
               stack: '总量',
-              data:[220, 182, 1191, 1234, 290, 330, 310]
+              smooth: true,
+              data:[220, 182, 300, 200, 290, 200, 310]
             },
             {
-              name:'视频广告',
+              name:'旅游',
               type:'line',
               stack: '总量',
-              data:[150, 1232, 201, 154, 190, 330, 410]
+              smooth: true,
+              data:[150, 200, 201, 154, 190, 200, 200]
             },
             {
-              name:'直接访问',
-              type:'line',
-              stack: '总量',
-              data:[320, 332, 301, 334, 390, 1330, 320]
-            },
-            {
+              show:false,
               name:'生成平滑曲线',
               type:'line',
               stack: '总量',
-              data:[820, 932, 950, 980, 1290, 1330, 1800]
+              smooth: true,
+              data:[3000, 3200, 3300, 3340, 4000, 3600, 3800]
             }
           ]
         };
         myChart.setOption(option);
+      },
+      data() {
+        return {
+          areas:[
+            '城投','物流','旅游','建筑工程','公用事业','电子','军工','投资','新能源','TMT',
+            '农业','机械','矿业','建材','科研','金融','冶金','房地产','现代服务','煤炭'
+          ],
+          oneCode:0,
+          dialogTableVisible: false,
+          dialogFormVisible: false,
+          formLabelWidth: '120px'
+        };
+      },
+      methods:{
+        addClass(index){
+          this.oneCode = index
+        },
       }
     }
 </script>
 
 <style lang="scss">
-  .warPer{
-    width: 1200px;
-    float: left;
+  .area{
+    width: 100%;
+    li{
+      float: left;
+      margin: 10px 20px;
+      width: 80px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 10px;
+    }
+    a{
+      color: black;
+    }
+    .block{
+      padding-top: 5px;
+    }
+  }
+
+  .active{
+    background-color: #2d7662;
+    color: white;
   }
   .create_btn{
     width: 120px;
@@ -149,7 +288,7 @@
       float: left;
       .Ip_box{
         display: inline-block;
-        width: 80px;
+        width: 100px;
         height: 30px;
         border: 1px solid #2d7662;
         border-radius: 5px;
@@ -182,4 +321,5 @@
     line-height: 30px;
     font-size: 12px;
   }
+
   </style>

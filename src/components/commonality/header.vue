@@ -5,9 +5,7 @@
         <img src="../../images/logo.png" alt="">
       </div>
       <div class="header_list">
-        
-        <router-link v-for="(item,index) in list" :to= "item.link" class="header_btn" @click.native="addClass(index)" :class="{active:avtiveAdd==index}">{{item.name}}</router-link>
-       
+        <router-link v-for="(item,index) in list" key="index" :to= "item.link" class="header_btn" @click.native="addClass(index)" :class="{active:avtiveAdd==index}">{{item.name}}</router-link>
       </div>
       <div class="login">
         <img src="../../images/login.png" alt="">
@@ -76,10 +74,10 @@
         text-align: center;
         line-height: 60px;
         font-size: 12px;
-        color: #FFF; 
+        color: #FFF;
         cursor: pointer;
         &.active{
-          background-color: #263967; 
+          background-color: #263967;
         }
       }
       .header_btn:hover{

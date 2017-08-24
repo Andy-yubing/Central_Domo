@@ -52,7 +52,7 @@ body {
   //background-color: white;
   margin-bottom: 10px;
   padding: 15px 15px 15px 50px;
-  background-color: #FFF; 
+  background-color: #FFF;
 }
 
 .clearFix:after {
@@ -70,4 +70,34 @@ body {
     background-color: #2d7662;
     color: #fff !important;
   }
+}
+
+.bottom_line{
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  border-bottom: 1px solid #999;
+  margin-bottom: 20px;
+}
+
+.big_text{
+  font-weight: bold;
+}
+.G_bg{
+  background-color: #2d7662;
+  border: 1px solid #2d7662;
+  color: white;
+}
+.G_bg:hover{
+  background-color: #2D604C;
+  border: 1px solid #2D604C;
+  color: white;
+}
+.R_box{
+  float: right;
+}
+
+.active{
+  background-color: #2d7662;
+  color: white;
 }
