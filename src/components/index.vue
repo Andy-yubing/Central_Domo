@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="content">
        <left></left>
-       <router-view></router-view>
+       <router-view class="content_right"></router-view>
        <foot></foot>
     </div>
 </template>
@@ -18,11 +18,14 @@
 
 <style lang="scss">
   body{
-    background-color: white;
     .content{
       width: 100%;
       height: 800px;
-      background-color: #D2D2D2;
+      padding-left: 200px; 
+      position: relative;
+      .content_right{
+        background-color: #fff; 
+      }
     }
   }
 </style>

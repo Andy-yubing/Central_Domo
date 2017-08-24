@@ -139,10 +139,7 @@
 </script>
 
 <style lang="scss">
-  .warPer{
-    width: 1200px;
-    float: left;
-  }
+
   .bottom_line{
     height: 50px;
     width: 100%;
@@ -185,7 +182,7 @@
       }
     }
     li:hover{
-      color:#3047BF
+      color:#355699
     }
   }
   .active{
