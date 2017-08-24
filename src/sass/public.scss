@@ -49,7 +49,7 @@ body {
 }
 
 .wbg {
-  //background-color: white;
+  width: 100%;
   margin-bottom: 10px;
   padding: 15px 15px 15px 50px;
   background-color: #FFF;
@@ -95,9 +95,15 @@ body {
 }
 .R_box{
   float: right;
+  margin-right: 50px;
 }
 
 .active{
   background-color: #2d7662;
   color: white;
+}
+.warPer{
+  background: white;
+  width: 1111px;
+  float: left;
 }

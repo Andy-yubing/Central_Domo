@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="warPer">
       <div class="wbg_up">
         <div class="wbg update">
           <a href="javascript:;">
@@ -14,9 +14,10 @@
 <script>
     export default {}
 </script>
-
 <style lang="scss">
   .wbg_up{
+    width: 100%;
+    background-color: white;
     height: 600px;
   }
 .update{

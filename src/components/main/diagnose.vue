@@ -5,7 +5,6 @@
         <div class="R_box">
           <el-button type="primary">导出</el-button>
           <el-button type="primary" @click="dialogTableVisible = true">产业设置</el-button>
-
           <el-dialog title="选择企业产业组合"
                      :visible.sync="dialogTableVisible"
                      size="large">
@@ -102,13 +101,13 @@
           </el-dialog>
         </div>
       </div>
-      <div class="wbg bottom_line">
-        <span>产业组合平滑曲线</span>
-        <!--<div class="create_btn">
-          <a href="javascript:;">生成平滑曲线</a>
-        </div>-->
-      </div>
-      <div class="W_bg hasBottom">
+      <div class="wbg hasBottom">
+        <div class=" bottom_line">
+          <span>产业组合平滑曲线</span>
+          <!--<div class="create_btn">
+            <a href="javascript:;">生成平滑曲线</a>
+          </div>-->
+        </div>
         <div id="main" class="center_box" style="width: 1000px;height:450px;"></div>
       </div>
       <div class="wbg">

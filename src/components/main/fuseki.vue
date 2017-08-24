@@ -1,5 +1,5 @@
 <template>
-  <div class="warPer">
+  <div class="warPer clearFix">
     <div class="wbg">
       <div class="bottom_line">
         <span>筛选条件:</span>
@@ -46,31 +46,33 @@
         </a>
       </ul>
     </div>
-    <ul class="company">
-      <li class="first">
-        <div>企业名称</div>
-        <div>区域</div>
-        <div>规模</div>
-        <div>行业</div>
-        <div>企业性质</div>
-        <div>操作</div>
-      </li>
-      <li v-for="item in company">
-        <div>{{item.name}}</div>
-        <div>{{item.area}}</div>
-        <div>{{item.number}}</div>
-        <div>{{item.business}}</div>
-        <div>{{item.property}}</div>
-        <div>
-          <a href="javascript:;">
-            <span class="item_btn">对标</span>
-          </a>
-          <a href="javascript:;">
-            <span class="item_btn">关注</span>
-          </a>
-        </div>
-      </li>
-    </ul>
+   <div class="wbg clearFix">
+     <ul class="company">
+       <li class="first">
+         <div>企业名称</div>
+         <div>区域</div>
+         <div>规模</div>
+         <div>行业</div>
+         <div>企业性质</div>
+         <div>操作</div>
+       </li>
+       <li v-for="item in company">
+         <div>{{item.name}}</div>
+         <div>{{item.area}}</div>
+         <div>{{item.number}}</div>
+         <div>{{item.business}}</div>
+         <div>{{item.property}}</div>
+         <div>
+           <a href="javascript:;">
+             <span class="item_btn">对标</span>
+           </a>
+           <a href="javascript:;">
+             <span class="item_btn">关注</span>
+           </a>
+         </div>
+       </li>
+     </ul>
+   </div>
   </div>
 </template>
 
