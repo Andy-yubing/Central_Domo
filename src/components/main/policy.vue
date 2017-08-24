@@ -11,7 +11,6 @@
           <a href="javascript:;" v-for="(area,index) in areas">
             <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area}}</li>
           </a>
-
         </ul>
       </div>
       <div class="wbg">
@@ -32,8 +31,7 @@
               :picker-options="pickerOptions0">
             </el-date-picker>
           </div>
-        </ul>a
-
+        </ul>
         <ul class="con_msg">
           <li v-for="list in this.message">
             <div class="has_float">{{list.name}}</div>
