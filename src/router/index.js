@@ -13,6 +13,7 @@ import Search from '../components/main/Search.vue'
 import obor from '../components/main/obor.vue'
 import environment from '../components/main/environment.vue'
 import message from '../components/main/message.vue'
+import fusekiList from '../components/main/fusekiList.vue'
 
 Vue.use(Router)
 
@@ -56,6 +57,11 @@ export default new Router({
           path: 'fuseki',
           name: 'fuseki',
           component: fuseki,
+        },
+        {
+          path: 'fusekiList',
+          name: 'fusekiList',
+          component: fusekiList,
         },
         {
           path: 'Search',

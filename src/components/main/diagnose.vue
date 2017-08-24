@@ -166,9 +166,7 @@
             data:['生成平滑曲线'],
             selected: {
               '生成平滑曲线' : false,
-              color:'red'
             },
-
           },
           grid: {
             left: '3%',
@@ -208,12 +206,16 @@
               data:[150, 200, 201, 154, 190, 200, 200]
             },
             {
-              show:false,
               name:'生成平滑曲线',
               type:'line',
               stack: '总量',
               smooth: true,
-              data:[3000, 3200, 3300, 3340, 4000, 3600, 3800]
+              lineStyle:{
+                normal: {
+                  color: '#607615',
+                },
+              },
+              data:[300, 320, 330, 334, 400, 360, 300]
             }
           ]
         };

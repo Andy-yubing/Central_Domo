@@ -161,12 +161,11 @@
       background-color: #f1f4fc;
     }
     li{
-      list-style: disc;
       line-height: 40px;
       height: 40px;
       .has_float{
         text-align: center;
-        width: 33%;
+        width: 31%;
         display: inline-block;
         font-size: 12px;
       }

@@ -4,7 +4,9 @@
       <div class="bottom_line">
         <span>筛选条件:</span>
         <div class="R_box">
-          <el-button type="primary">企业对标</el-button>
+          <router-link to="/body/fusekiList">
+            <el-button type="primary">企业对标</el-button>
+          </router-link>
         </div>
       </div>
       <div class="clearFix classify">
