@@ -16,7 +16,6 @@
 			    		<span>全程贴身</span>
 			    		<span>专业辅导</span>
 			    	</div>
-			    	
 			    </li>
 			    <li>
 			    	<img src="../../images/2.png"  alt="">
@@ -98,7 +97,7 @@
 			</div>
 		</div>
 		<div class="home_bottom text-center">
-			<p>Copyright © 中源数据（北京）信息科技有限公司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系方式：400-6188-780</p>
+			<p>Copyright © 中源数聚（北京）信息科技有限公司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系方式：400-6188-780</p>
 			<p>京ICP备13006954号</p>
 		</div>
 	</div>
