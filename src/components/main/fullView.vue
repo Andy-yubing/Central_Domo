@@ -8,10 +8,10 @@
     <div class="fullView_heatingPower"></div>
     <div class="fullView_two">
       <span class="fullView_two_left">
-            
+
       </span>
       <span class="fullView_two_right">
-            
+
       </span>
     </div>
     <ul class="con_msg">
@@ -958,7 +958,7 @@ export default {
       }
 
       /* myChart.setOption({
-          
+
       });*/
       myChart.setOption(option);
     },
@@ -1393,13 +1393,13 @@ export default {
   }
   .vocation-title {
     margin-left: 60px;
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #2d7662;
     border: 0;
     padding: 5px 10px;
     color: #FFF;
-    font-size: 16px; 
+    font-size: 16px;
   }
   li:hover {
     color: #355699
