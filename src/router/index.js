@@ -16,6 +16,9 @@ import message from '../components/main/message.vue'
 import fusekiList from '../components/main/fusekiList.vue'
 import homePage from '../components/main/homePage.vue'
 import data from '../components/main/data.vue'
+import yuq from '../components/main/yuq.vue'
+import fko from '../components/main/fko.vue'
+import huj from '../components/main/huj.vue'
 import reportList from '../components/main/reportList.vue'
 Vue.use(Router)
 
@@ -31,6 +34,21 @@ export default new Router({
       path: '/data',
       name: "数据大屏",
       component: data,
+    },
+    {
+      path: '/yuq',
+      name: "舆情",
+      component: yuq,
+    },
+    {
+      path: '/fko',
+      name: "风控",
+      component: fko,
+    },
+    {
+      path: '/huj',
+      name: "环境",
+      component: huj,
     },
     {
       path: '/body',

@@ -18,7 +18,7 @@
   export default {
       data(){
         return {
-          list:[{name:"首页",link:"/"},{name:"管理洞察",link:"/body/look"},{name:"管理舆情",link:"javascript:;"},{name:"管理风控",link:"javascript:;"},{name:"管理环境",link:"javascript:;"}],
+          list:[{name:"首页",link:"/"},{name:"管理洞察",link:"/body/look"},{name:"管理舆情",link:"/yuq"},{name:"管理风控",link:"/fko"},{name:"管理环境",link:"/huj"}],
            avtiveAdd:0
         }
       },
