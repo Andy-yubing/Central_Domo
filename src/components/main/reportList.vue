@@ -1,6 +1,6 @@
 <template>
     <div>
-      政策环境
+      <img src="../../images/list.png" alt="">
     </div>
 </template>
 
@@ -8,6 +8,6 @@
     export default {}
 </script>
 
-<style scoped>
+<style>
 
 </style>

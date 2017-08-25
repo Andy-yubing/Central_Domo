@@ -3,7 +3,7 @@
       <h3 class="text-center body_left_title">管理洞察</h3>
       <a class="body_left_data" href="javascript:;">数据大屏</a>
       <el-collapse v-model="activeNames" @change="handleChange">
-        <el-collapse-item title="产品选择" name="1" class="body_left_el">
+        <el-collapse-item title="产业选择" name="1" class="body_left_el">
              <router-link to="/body/look">产业全景</router-link>
              <router-link to="/body/layout">产业布局</router-link>
              <router-link to="/body/policy">产业政策</router-link>
@@ -32,7 +32,7 @@
     },
     methods:{
       handleChange(){
-          
+
       }
     }
   }
@@ -42,51 +42,51 @@
   .body_left{
     .body_left_title{
       background-color: #FFF;
-      line-height: 50px;  
+      line-height: 50px;
       color: #FFF;
-      background-color: #2d7662; 
+      background-color: #2d7662;
     }
     .body_left_data{
       display: block;
-      text-align: center; 
-      line-height: 50px; 
-      background-color: #FFF;  
-      color: #355699; 
+      text-align: center;
+      line-height: 50px;
+      background-color: #FFF;
+      color: #355699;
     }
     position: absolute;
     left: 25px;
-    top: 0;  
+    top: 0;
     width: 150px;
     .el-collapse{
       border: 0;
       .el-collapse-item__content{
-        background-color: #FFF; 
+        background-color: #FFF;
         text-align: center;
-        line-height: 40px; 
+        line-height: 40px;
         padding: 0;
       }
     }
       .body_left_el{
         .el-collapse-item__header{
           .el-icon-arrow-right:before{
-            content: ""; 
+            content: "";
           }
           .el-collapse-item__header__arrow{
             margin: 0;
           }
           text-align: center;
           padding-left: 0;
-          font-size: 16px;    
+          font-size: 16px;
         }
         a{
           display: block;
-          color: #666666;  
+          color: #666666;
           &:hover{
             background-color: #2d7662;
-            color: #fff;   
+            color: #fff;
           }
-        } 
+        }
     }
   }
-  
+
 </style>

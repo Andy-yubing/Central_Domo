@@ -15,6 +15,7 @@ import environment from '../components/main/environment.vue'
 import message from '../components/main/message.vue'
 import fusekiList from '../components/main/fusekiList.vue'
 import homePage from '../components/main/homePage.vue'
+import reportList from '../components/main/reportList.vue'
 
 Vue.use(Router)
 
@@ -84,6 +85,11 @@ export default new Router({
           path: 'message',
           name: 'message',
           component: message,
+        },
+        {
+          path: 'reportList',
+          name: 'reportList',
+          component: reportList,
         }
       ]
     },

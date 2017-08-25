@@ -244,7 +244,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .warPer{
     background-color: #f7f7f7;
     .test{

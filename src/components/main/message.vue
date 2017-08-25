@@ -41,7 +41,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .left_box{
     float: left;
     margin-right: 20px;

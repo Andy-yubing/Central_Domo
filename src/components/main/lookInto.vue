@@ -48,7 +48,7 @@
         <router-view></router-view>
       </div>
     </div>
-    
+
     <!-- <Footer></Footer> -->
   </div>
 </template>
@@ -64,7 +64,7 @@
   }*/
 </script>
 
-<style>
+<style scoped>
   .content{
     width: 100%;
     overflow: hidden;

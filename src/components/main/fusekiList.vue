@@ -338,7 +338,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .corp{
     display: inline-block;
     height: 30px;

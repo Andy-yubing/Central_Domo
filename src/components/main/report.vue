@@ -44,7 +44,7 @@ export default {
       list: ["物流", "旅游", "建筑工程", "公用事业", "电子", "军工", "农业", "现代服务", "煤炭", "化工", "建材", "科研", "金融"],
        num:0,
     }
-   
+
   },
   methods: {
     handleClose(done) {
@@ -59,7 +59,7 @@ export default {
     },
     isShow(){
       this.dialogVisible = false;
-      this.$router.push({path:'/body/look'});
+      this.$router.push({path:'/body/reportList'});
     }
   }
 }
@@ -112,14 +112,14 @@ export default {
 }
 .el-dialog__title{
   color: #48576a;
-   font-size: 20px;   
+   font-size: 20px;
 }
 .handleClose_group {
   h5{
     margin-top: 30px;
-    padding-bottom: 15px; 
+    padding-bottom: 15px;
     border-bottom: 1px solid #eeeeee;
-    font-size: 16px;  
+    font-size: 16px;
     text-align: left;
   }
   .group {
@@ -130,11 +130,11 @@ export default {
       cursor: pointer;
       &:hover{
         color: #fff;
-        background-color: #2d7662;  
+        background-color: #2d7662;
       }
       &.active{
         color: #fff;
-        background-color: #2d7662;  
+        background-color: #2d7662;
       }
     }
   }

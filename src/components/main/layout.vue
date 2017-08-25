@@ -124,7 +124,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .bottom_line{
     height: 50px;

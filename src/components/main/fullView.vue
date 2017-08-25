@@ -8,10 +8,10 @@
     <div class="fullView_heatingPower"></div>
     <div class="fullView_two">
       <span class="fullView_two_left">
-            
+
       </span>
       <span class="fullView_two_right">
-            
+
       </span>
     </div>
     <ul class="con_msg">
@@ -45,69 +45,69 @@ export default {
           time: '8/15'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '国务院安委会：个别地区大事故责任追究未执行到位 ',
           website: '',
           time: '8/15'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '聚焦《重大行政决策程序暂行条例（征求意见稿）》',
           website: '',
           time: '8/15'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '质检总局出台“十条禁令”进一步规范执法行为 ',
           website: '',
-          time: '8/15'
+          time: '8/2'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '国家测绘地理信息局印发《地理信息产业统计分类（2017）》',
           website: '',
-          time: '8/15'
+          time: '8/3'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '公安部：年内实现居住证制度全覆盖 ',
           website: '',
-          time: '8/15'
+          time: '8/5'
         },
         {
-          name: '39分生态改革文件相继出台“任务清单”落实',
+          name: '八部门联合出台指导性意见:分享经济 不用老办法管',
           website: '',
-          time: '8/15'
+          time: '8/4'
         }
       ],
       list: [{
           btn: '煤炭行业',
-          name: '国美新集',
+          name: '国投新集',
+          website: '',
+          time: '8/7'
+        },
+        {
+          btn: '能源行业',
+          name: '中煤能源',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '矿产行业',
+          name: '金瑞矿业',
+          website: '',
+          time: '8/15'
+        },
+        {
+          btn: '煤炭行业',
+          name: '平煤股份',
           website: '',
           time: '8/15'
         },
         {
           btn: '能源行业',
-          name: '西山煤业',
+          name: '永泰能源',
           website: '',
           time: '8/15'
         },
         {
-          btn: '能源行业',
-          name: '西山煤业',
-          website: '',
-          time: '8/15'
-        },
-        {
-          btn: '能源行业',
-          name: '西山煤业',
-          website: '',
-          time: '8/15'
-        },
-        {
-          btn: '能源行业',
-          name: '西山煤业',
-          website: '',
-          time: '8/15'
-        },
-        {
-          btn: '能源行业',
-          name: '西山煤业',
+          btn: '煤炭行业',
+          name: '盘江股份',
           website: '',
           time: '8/15'
         },
@@ -819,7 +819,7 @@ export default {
 
 
       /* myChart.setOption({
-          
+
       });*/
       myChart.setOption(option);
     },
@@ -985,8 +985,8 @@ export default {
         [6, 2, 0],
         [6, 3, 0],
         [6, 4, 0],
-       
-        
+
+
       ];
 
       data = data.map(function(item) {
@@ -1046,9 +1046,6 @@ export default {
     radar() {
       let myChart = echarts.init(document.getElementsByClassName('fullView_two_left')[0]);
       let option = {
-        title: {
-          text: '基础雷达图'
-        },
         tooltip: {},
         legend: {
           data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
@@ -1063,25 +1060,25 @@ export default {
             }
           },
           indicator: [
-            { name: '销售（sales）', max: 6500 },
-            { name: '管理（Administration）', max: 16000 },
-            { name: '信息技术（Information Techology）', max: 30000 },
-            { name: '客服（Customer Support）', max: 38000 },
-            { name: '研发（Development）', max: 52000 },
-            { name: '市场（Marketing）', max: 25000 }
+            { name: '金融', max: 6500 },
+            { name: '电商', max: 16000 },
+            { name: '旅游', max: 30000 },
+            { name: '矿业', max: 38000 },
+            { name: '农业', max: 52000 },
+            { name: '煤炭', max: 25000 }
           ]
         },
         series: [{
           name: '预算 vs 开销（Budget vs spending）',
           type: 'radar',
           // areaStyle: {normal: {}},
-          data: [{
-              value: [4300, 10000, 28000, 35000, 50000, 19000],
-              name: '预算分配（Allocated Budget）'
-            },
+          data: [/*{
+            value: [4300, 10000, 28000, 35000, 50000, 19000],
+            name: '预算产值（Allocated Budget）'
+          },*/
             {
               value: [5000, 14000, 28000, 31000, 42000, 21000],
-              name: '实际开销（Actual Spending）'
+              name: '产值（Actual Spending）'
             }
           ]
         }]
@@ -1091,7 +1088,7 @@ export default {
     barList() {
       let myChart = echarts.init(document.getElementsByClassName('fullView_two_right')[0]);
 
-      //app.title = '世界人口总量 - 条形图'; 
+      //app.title = '世界人口总量 - 条形图';
 
       let option = {
 
@@ -1116,14 +1113,14 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+          data: ['煤炭', '金融', '电商', '旅游', '物流', '城投']
         },
         series: [
 
           {
             name: '2012年',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [60, 70, 80, 92, 113, 168]
           }
         ]
       };

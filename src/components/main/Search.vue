@@ -52,31 +52,31 @@
               property:'国有及国有控股企业'
             },
             {
-              name:'中科点击有限公司',
-              area:'北京市',
+              name:'上海百胜股份有限公司',
+              area:'上海市',
               number:'50-100人',
               business:'技术',
               property:'国有及国有控股企业'
             },
             {
-              name:'中科点击有限公司',
-              area:'北京市',
+              name:'深圳市明源股份有限公司',
+              area:'深圳',
               number:'50-100人',
               business:'技术',
               property:'国有及国有控股企业'
             },
             {
-              name:'中科点击有限公司',
-              area:'北京市',
+              name:'南京系统股份有限公司',
+              area:'南京',
               number:'50-100人',
               business:'技术',
               property:'国有及国有控股企业'
             },
             {
-              name:'中科点击有限公司',
+              name:'上海派拉股份有限公司',
               area:'北京市',
               number:'50-100人',
-              business:'技术',
+              business:'软件',
               property:'国有及国有控股企业'
             }
           ]
@@ -93,7 +93,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .search{
     .label{
       margin: 100px 100px 50px;
