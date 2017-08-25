@@ -1296,11 +1296,10 @@ export default {
     vm.radar();
     vm.bar();
   }
-
 }
 
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .fullView_p {
   background-color: #FFF;
   padding: 15px 15px 15px 50px;
@@ -1358,7 +1357,7 @@ export default {
       &:first-child {
         text-align: left;
         padding-left: 60px;
-        &::before {
+        /* &::before {
           content: "";
           position: absolute;
           left: 35px;
@@ -1368,7 +1367,7 @@ export default {
           background-color: #00b6e6;
           -webkit-border-radius: 5px;
           border-radius: 5px;
-        }
+        } */
       }
       &.has_vocation {
         >button {
