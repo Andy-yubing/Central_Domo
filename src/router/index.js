@@ -14,6 +14,7 @@ import obor from '../components/main/obor.vue'
 import environment from '../components/main/environment.vue'
 import message from '../components/main/message.vue'
 import fusekiList from '../components/main/fusekiList.vue'
+import homePage from '../components/main/homePage.vue'
 
 Vue.use(Router)
 
@@ -22,7 +23,8 @@ export default new Router({
   base: __dirname,
   routes: [{
       path: '/',
-      name:"app"
+      name:"首页",
+      component: homePage,
     },
     {
       path: '/body',
