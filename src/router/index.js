@@ -15,8 +15,7 @@ import environment from '../components/main/environment.vue'
 import message from '../components/main/message.vue'
 import fusekiList from '../components/main/fusekiList.vue'
 import homePage from '../components/main/homePage.vue'
-import reportList from '../components/main/reportList.vue'
-
+import data from '../components/main/data.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -24,8 +23,13 @@ export default new Router({
   base: __dirname,
   routes: [{
       path: '/',
-      name:"首页",
+      name: "首页",
       component: homePage,
+    },
+    {
+      path: '/data',
+      name: "数据大屏",
+      component: data,
     },
     {
       path: '/body',
@@ -86,11 +90,7 @@ export default new Router({
           name: 'message',
           component: message,
         },
-        {
-          path: 'reportList',
-          name: 'reportList',
-          component: reportList,
-        }
+
       ]
     },
   ]

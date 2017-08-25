@@ -21,24 +21,24 @@
 		}
 	}
 </script>
-<style lang="scss" >
+<style lang="scss">
 	.area{
-		padding: 10px 20px;
+		padding: 10px 20px; 
 		>p{
 			line-height: 40px;
-			padding-bottom: 5px;
-			border-bottom: 1px solid #999999;
+			padding-bottom: 5px; 
+			border-bottom: 1px solid #999999;   
 		}
 		.selectarea{
-			margin-top: 10px;
+			margin-top: 10px; 
 			>li{
 				float: left;
-				margin: 10px 15px 10px 0;
-				font-size: 13px;
-				cursor: pointer;
+				margin: 10px 15px 10px 0; 
+				font-size: 13px; 
+				cursor: pointer; 
 			}
 		}
 	}
-
-
+	
+	
 </style>

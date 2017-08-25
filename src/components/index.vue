@@ -19,7 +19,6 @@
 <style lang="scss">
   body{
     .content{
-      height: 800px;
       padding-left: 200px; 
       position: relative;
       margin-right: 30px; 
