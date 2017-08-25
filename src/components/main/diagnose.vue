@@ -170,7 +170,7 @@
             trigger: 'axis'
           },
           legend: {
-            data:['生成平滑曲线'],
+            data:['生成平滑曲线','城投','物流','旅游'],
             selected: {
               '生成平滑曲线' : false,
             },
