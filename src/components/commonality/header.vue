@@ -36,7 +36,6 @@
     width:100%;
     height: 60px;
     background-color: #355699;
-    margin-bottom: 20px;
     position: relative;
     .logo{
       float: left;
