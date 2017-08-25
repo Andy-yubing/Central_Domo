@@ -1,10 +1,25 @@
 <template>
     <div class="warPer clearFix">
       <div class="one test">
-        一带一路
+        <div class="by">
+          <span class="circle"></span>
+          <span class="hide_text">
+            <p>单位:万美元</p>
+            <p>2015净额:705.25</p>
+            <p>2015存量:377.25</p>
+          </span>
+        </div>
+        <div class="md">
+          <span class="circle"></span>
+          <span class="hide_text">
+            <p>单位:万美元</p>
+            <p>2015净额:823.24</p>
+            <p>2015存量:425.25</p>
+          </span>
+        </div>
       </div>
-      <div class="one test">
-        热词云图
+      <div class="one test1">
+
       </div>
 
       <div class="one clearFix">
@@ -17,25 +32,30 @@
               <div>净额(亿)</div>
               <div>存量(亿)</div>
             </li>
-            <li v-for="item in company">
+            <li v-for="item in cityes">
               <div>{{item.name}}</div>
               <div>{{item.area}}</div>
               <div>{{item.number}}</div>
             </li>
           </ul>
         </div>
-        <div class="top10 top_r clearFix">
+
+      </div>
+      <div class="one clearFix">
+        <div class="top10 clearFix" id="top_r">
           <span class="t_tittle">企业排行top10</span>
           <a href="javascript:;" class="more">更多</a>
           <ul class="company clearFix">
-            <li class="first">
+            <li class="first clearFix">
               <div>企业名称</div>
               <div>规模</div>
               <div>投资金额(亿)</div>
+              <div>国家</div>
             </li>
-            <li v-for="item in company">
+            <li v-for="item in company" class="clearFix">
               <div>{{item.name}}</div>
               <div>{{item.area}}</div>
+              <div>{{item.number}}</div>
               <div>{{item.number}}</div>
             </li>
           </ul>
@@ -67,12 +87,73 @@
       </div>
     </div>
 </template>
-
 <script>
     export default {
       data(){
         return{
           company:[
+            {
+              name:'淘宝',
+              area:'大型',
+              number:'56412',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'腾讯',
+              area:'大型',
+              number:'56412',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'美团',
+              area:'大型',
+              number:'3434',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'中科',
+              area:'大型',
+              number:'34342',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'华夏',
+              area:'大型',
+              number:'678678',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'亚信',
+              area:'大型',
+              number:'8964',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'阿里',
+              area:'大型',
+              number:'2342',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'微软',
+              area:'大型',
+              number:'4587',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'索尼',
+              area:'大型',
+              number:'56412',
+              city:'也门 印度 赞比亚'
+            },
+            {
+              name:'联想',
+              area:'大型',
+              number:'45452',
+              city:'也门 印度 赞比亚'
+            }
+          ],
+          cityes:[
             {
               name:'波兰',
               area:'4555',
@@ -151,6 +232,52 @@
     background-color: #f7f7f7;
     .test{
       height: 500px;
+      background:url("../../images/dt.png") no-repeat center;
+      background-size: 100% 100%;
+      position: relative;
+      .circle{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: yellow;
+      }
+      .hide_text{
+        display: none;
+        width: 100px;
+        height: 80px;
+        background-color: #434343;
+        border-radius: 10px;
+        position: absolute;
+        left: 28px;
+        top: 20px;
+        opacity: 0.8;
+        color: white;
+        line-height: 20px;
+        font-size: 12px;
+        padding: 10px 10px 0 10px ;
+      }
+      .by:hover .hide_text{
+        display: inline-block;
+      }
+      .md:hover .hide_text{
+        display: inline-block;
+      }
+      .by{
+        position: absolute;
+        top: 337px;
+        left: 182px;
+      }
+      .md{
+        position: absolute;
+        top: 225px;
+        right: 360px;
+      }
+    }
+    .test1{
+      height: 400px;
+      background:url("../../images/obr.png") no-repeat center;
+      background-size: 100% 100%;
     }
     .one{
       width: 100%;
@@ -188,23 +315,40 @@
       }
     }
     .top10{
-      width: 49%;
+      width: 100%;
       background-color: white;
-      float: left;
       padding-top: 20px;
       position: relative;
       .company{
         margin-top: 30px;
+        li{
+          height: 50px;
+          line-height: 50px;
+        }
+        li:not(:first-child):hover {
+          background: #C8ECC8;
+        }
+        li:nth-of-type(even){
+          background-color: #f1f4fc;
+        }
         .first{
-
+          background-color: #273967;
+          color: white;
         }
         div{
           width: 33.33%;
+          float: left;
+          text-align: center;
         }
       }
     }
-    .top_r{
-      float: right;
+    #top_r{
+      width: 100%;
+      li{
+        div{
+          width: 25%;
+        }
+      }
     }
     .t_tittle{
       display: inline-block;

@@ -8,9 +8,13 @@
       </div>
       <div class="wbg">
         <span>对标类型:</span>
-        <span class="g_btn">人员结构</span>
-        <span class="g_btn">组织结构</span>
-        <span class="g_btn">员工效率</span>
+        <a href="javascript:;"
+           class="g_btn"
+           v-for="(tittle,index) in tittles"
+           @click="addClass(index)"
+           :class="{active1:oneCode==index}"
+        >{{tittle}}
+        </a>
       </div>
       <div  class="x_tu">
         <div id="tu1" style="width: 100%;height:300px;"></div>
@@ -34,6 +38,17 @@
 <script>
     import echarts from 'echarts'
     export default {
+      data(){
+        return{
+          tittles:['人员结构','组织结构','员工效率'],
+          oneCode:0,
+        }
+      },
+      methods:{
+        addClass(index){
+          this.oneCode = index
+        }
+      },
       mounted(){
         var myChart = echarts.init(document.getElementById('tu1'));
         var option = {
@@ -371,5 +386,8 @@
     .center_tu{
       margin: 50px auto;
     }
+  }
+  .active1{
+    background-color: #005B00;
   }
 </style>
