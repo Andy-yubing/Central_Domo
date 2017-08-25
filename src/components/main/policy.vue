@@ -165,7 +165,7 @@
       height: 40px;
       .has_float{
         text-align: center;
-        width: 31%;
+        width: 33%;
         display: inline-block;
         font-size: 12px;
       }
