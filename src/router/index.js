@@ -16,6 +16,7 @@ import message from '../components/main/message.vue'
 import fusekiList from '../components/main/fusekiList.vue'
 import homePage from '../components/main/homePage.vue'
 import data from '../components/main/data.vue'
+import reportList from '../components/main/reportList.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -90,6 +91,11 @@ export default new Router({
           name: 'message',
           component: message,
         },
+        {
+          path: 'reportList',
+          name: 'reportList',
+          component: reportList,
+        }
 
       ]
     },
