@@ -141,8 +141,15 @@
           </div>
         </div>
         <div class="text-center">
-          <div class="Bto_btn">诊断处方</div>
-          <div class="Bto_btn">产业平滑曲线样例</div>
+          <div class="Bto_btn" @click="showOne">诊断处方</div>
+          <div class="Bto_btn" @click="showTwo">产业平滑曲线样例</div>
+        </div>
+        <div v-show="isShow" class="show_box">
+          <div class="left_box">三产业具有不同的利润率和成长周期，物流的利润率最低、波动幅度最小，城投的利润率最高、波动幅度最大。3产业进行组合，将产业进行叠加，形成一条平滑的波动曲线，即企业的收益曲线，则企业规避了单个产业利润率降低的风险，得到了收益的持续增长。</div>
+          <div class="Bto_btn">诊断结果</div>
+        </div>
+        <div v-show="isGo" class="go_box">
+          <img src="../../images/result.jpg" alt="">
         </div>
         <ul class="con_box">
           <li>三个产业具有不同的利润率和成长周期，物流的利润率最低、波动幅度最小，城投的利润率最高、波动幅度最大。 三个产业进行组合，将产业</li>
@@ -223,6 +230,8 @@
       },
       data() {
         return {
+          isShow:false,
+          isGo:false,
           areas:[
             '城投','物流','旅游','建筑工程','公用事业','电子','军工','投资','新能源','TMT',
             '农业','机械','矿业','建材','科研','金融','冶金','房地产','现代服务','煤炭'
@@ -237,11 +246,20 @@
         addClass(index){
           this.oneCode = index
         },
+        showOne(){
+          this.isShow = true
+          this.isGo = false
+        },
+        showTwo(){
+          this.isShow = false
+          this.isGo = true
+        }
       }
     }
 </script>
 
 <style lang="scss" scoped>
+
   .area{
     width: 100%;
     li{
@@ -322,5 +340,21 @@
     line-height: 30px;
     font-size: 12px;
   }
-
+.show_box{
+  text-align:center;
+  margin: 30px 0;
+  padding: 0 50px;
+}
+  .left_box{
+    text-align: left;
+  }
+  .go_box{
+    width: 100%;
+    height: 300px;
+    margin-left: -40px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
   </style>
