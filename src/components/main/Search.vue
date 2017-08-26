@@ -45,39 +45,39 @@
           isHide:true,
           company:[
             {
-              name:'中国中材集团有限公司',
-              area:'河北省',
-              number:'50-100人',
-              business:'建材',
-              property:'国有及国有控股企业'
-            },
-            {
-              name:'上海百胜股份有限公司',
-              area:'上海市',
-              number:'50-100人',
-              business:'技术',
-              property:'国有及国有控股企业'
-            },
-            {
-              name:'深圳市明源股份有限公司',
+              name:'万科企业股份有限公司',
               area:'深圳',
-              number:'50-100人',
-              business:'技术',
-              property:'国有及国有控股企业'
+              number:'1000-9999人',
+              business:'地产',
+              property:'私营企业'
             },
             {
-              name:'南京系统股份有限公司',
-              area:'南京',
-              number:'50-100人',
-              business:'技术',
-              property:'国有及国有控股企业'
+              name:'保利房地产集团',
+              area:'广州',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有企业'
             },
             {
-              name:'上海派拉股份有限公司',
-              area:'北京市',
-              number:'50-100人',
-              business:'软件',
-              property:'国有及国有控股企业'
+              name:'绿地控股集团有限公司',
+              area:'上海',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有控股'
+            },
+            {
+              name:'中国海外发展有限公司',
+              area:'香港',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有控股'
+            },
+            {
+              name:'恒大地产集团有限公司',
+              area:'北京',
+              number:'1000-9999人',
+              business:'地产',
+              property:'私营企业'
             }
           ]
         }
@@ -101,7 +101,7 @@
         display: inline-block;
         height: 30px;
         width: 100px;
-        background-color: green;
+        background-color: #2d7662;
         color: white;
         border-radius: 10px;
         line-height: 30px;
@@ -109,7 +109,7 @@
       }
       span{
         margin: 0 20px;
-        color: green;
+        color: #2d7662;
       }
     }
     .search_box{
@@ -123,7 +123,7 @@
       display: inline-block;
       width: 100px;
       height: 44px;
-      background-color: green;
+      background-color: #2d7662;
       line-height: 40px;
       text-align: center;
        a{
@@ -134,7 +134,7 @@
       margin-top: 100px;
       width:100%;
       height: 50px;
-      background-color: #355699;
+      background-color: #2d7662;
       text-align: center;
       line-height: 50px;
       .first{

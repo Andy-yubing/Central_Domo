@@ -2,7 +2,7 @@
     <div>
       <div class="wbg">
         <span>对标企业:</span>
-        <span class="corp">淘宝科技有限空司</span> VS <span class="corp">腾讯科技有限公司</span>
+        <span class="corp">恒大地产集团有限公司</span> VS <span class="corp g_bg">添加对标企业</span>
         <span class="down g_btn">下载</span>
         <div class="text">最多只能选三家企业对标，更多请开通套餐</div>
       </div>
@@ -136,7 +136,7 @@
           ],
           series : [
             {
-              name:'直接访问',
+              name:'',
               type:'bar',
               barWidth: '60%',
               data:[10, 52, 200]
@@ -150,10 +150,10 @@
           title: {
             text: '学历分布对比'
           },
-          legend: {
-            right:20,
-            data: ['中材集团']
-          },
+//          legend: {
+//            right:20,
+//            data: ['中材集团']
+//          },
           color: ['#3398DB'],
           tooltip : {
             trigger: 'axis',
@@ -183,7 +183,7 @@
           ],
           series : [
             {
-              name:'中材集团',
+              name:'',
               type:'bar',
               barWidth: '60%',
               data:[10, 52, 200, 334]
@@ -218,7 +218,7 @@
           },
           yAxis: {
             type: 'category',
-            data: ['淘宝']
+            data: ['']
           },
           series: [
             {
@@ -290,10 +290,10 @@
           title: {
             text: '职称分布对比'
           },
-          legend: {
-            right:20,
-            data: ['职称分布']
-          },
+//          legend: {
+//            right:20,
+//            data: ['职称分布']
+//          },
           color: ['#3398DB'],
           center:[10,50],
           tooltip : {
@@ -324,7 +324,7 @@
           ],
           series : [
             {
-              name:'职称分布',
+              name:'',
               type:'bar',
               barWidth: '60%',
               data:[10, 52, 200, 334]
@@ -339,6 +339,10 @@
 </script>
 
 <style lang="scss" scoped>
+  .g_bg{
+    background-color: green;
+    color: white;
+  }
   .corp{
     display: inline-block;
     height: 30px;

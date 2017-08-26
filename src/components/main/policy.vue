@@ -9,7 +9,7 @@
         </div>
         <ul class="area clearFix">
           <a href="javascript:;" v-for="(area,index) in areas">
-            <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area}}</li>
+            <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area.name}}</li>
           </a>
         </ul>
       </div>
@@ -126,10 +126,15 @@
             }
           ],
           areas:[
-            '北京市','黑龙江市','上海市','重庆市','山西省','浙江省','湖南省','云南省','河北省','吉林省'
+            {name:'黑龙江省',flag:false},{name:'广东省',flag:false},{name:'北京市',flag:false},{name:'上海市',flag:false},{name:'香港特别行政区',flag:false},{name:'浙江省',flag:false},{name:'山西省',flag:false},{name:'云南省',flag:false},{name:'河北省',flag:false},{name:'吉林省',flag:false},
+            {name:'江西省',flag:false},{name:'河南省',flag:false},{name:'内蒙古自治区',flag:false},{name:'安徽省',flag:false},{name:'西藏自治区',flag:false},{name:'天津市',flag:false},{name:'青海省',flag:false},{name:'宁夏回族自治区 ',flag:false},{name:'新疆维吾尔自治区',flag:false},
+            {name:'河北省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
           ],
           types:[
-            '城投','物流','金融','旅游','电子','农业','机械','矿业','科研','房地产','交通运输'],
+            '建材','机械','旅游','建筑工程','公众事业','电子','石油石化','军工',
+            '投资','新能源','TMT','农业','电力','煤炭','矿业','化工',
+            '地产','科研','金融','冶金','物流','现代服务','商贸','城投','交通运输','其他'
+          ],
           times:[
             '全部','今日','昨日','一周','30天'
           ],
@@ -156,9 +161,8 @@
   .area{
     width: 100%;
     li{
+      padding: 0 10px;
       float: left;
-      margin: 10px 20px;
-      width: 80px;
       height: 30px;
       text-align: center;
       line-height: 30px;

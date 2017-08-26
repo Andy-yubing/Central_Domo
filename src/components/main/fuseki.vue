@@ -44,7 +44,7 @@
       </div>
       <ul class="area clearFix">
         <a href="javascript:;" v-for="(area,index) in areas">
-          <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area}}</li>
+          <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area.name}}</li>
         </a>
       </ul>
     </div>
@@ -84,7 +84,7 @@
   Vue.use(Element)
   const Options = ['城投', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
   const Options2 = ['中外合资企业', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
-  const Options3 = ['城投', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
+  const Options3 = ['20人以下', '20-99人', '100-499人', '500-999人','1000-9999人','10000人以上', '不限'];
   export default {
     data() {
       return {
@@ -92,7 +92,6 @@
         checkedCities: [],
         cities: Options,
         isIndeterminate: true,
-
         checkAll2: true,
         checkedCities2: [],
         cities2: Options2,
@@ -103,44 +102,46 @@
         cities3: Options3,
         isIndeterminate3: true,
         areas:[
-          '北京市','黑龙江市','上海市','重庆市','山西省','浙江省','湖南省','云南省','河北省','吉林省'
+          {name:'黑龙江省',flag:false},{name:'广东省',flag:false},{name:'北京市',flag:false},{name:'上海市',flag:false},{name:'香港特别行政区',flag:false},{name:'浙江省',flag:false},{name:'山西省',flag:false},{name:'云南省',flag:false},{name:'河北省',flag:false},{name:'吉林省',flag:false},
+          {name:'江西省',flag:false},{name:'河南省',flag:false},{name:'内蒙古自治区',flag:false},{name:'安徽省',flag:false},{name:'西藏自治区',flag:false},{name:'天津市',flag:false},{name:'青海省',flag:false},{name:'宁夏回族自治区 ',flag:false},{name:'新疆维吾尔自治区',flag:false},
+          {name:'河北省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
         ],
         oneCode:0,
         company:[
           {
-            name:'中国中材集团有限公司',
-            area:'河北省',
-            number:'50-100人',
-            business:'建材',
-            property:'国有及国有控股企业'
-          },
-          {
-            name:'上海百胜股份有限公司',
-            area:'上海市',
-            number:'50-100人',
-            business:'技术',
-            property:'国有及国有控股企业'
-          },
-          {
-            name:'深圳市明源股份有限公司',
+            name:'万科企业股份有限公司',
             area:'深圳',
-            number:'50-100人',
-            business:'技术',
-            property:'国有及国有控股企业'
+            number:'1000-9999人',
+            business:'地产',
+            property:'私营企业'
           },
           {
-            name:'南京系统股份有限公司',
-            area:'南京',
-            number:'50-100人',
-            business:'技术',
-            property:'国有及国有控股企业'
+            name:'保利房地产集团',
+            area:'广州',
+            number:'1000-9999人',
+            business:'地产',
+            property:'国有企业'
           },
           {
-            name:'上海派拉股份有限公司',
-            area:'北京市',
-            number:'50-100人',
-            business:'软件',
-            property:'国有及国有控股企业'
+            name:'绿地控股集团有限公司',
+            area:'上海',
+            number:'1000-9999人',
+            business:'地产',
+            property:'国有控股'
+          },
+          {
+            name:'中国海外发展有限公司',
+            area:'香港',
+            number:'1000-9999人',
+            business:'地产',
+            property:'国有控股'
+          },
+          {
+            name:'恒大地产集团有限公司',
+            area:'北京',
+            number:'1000-9999人',
+            business:'地产',
+            property:'私营企业'
           }
         ]
 
@@ -199,7 +200,7 @@
   .company{
     width:100%;
     height: 50px;
-    background-color: #355699;
+    background-color: #2d7662;
     text-align: center;
     line-height: 50px;
     .first{
@@ -214,7 +215,6 @@
       div{
         float: left;
         width: 16.66%;
-
         .item_btn{
           display: inline-block;
           width: 50px;
@@ -233,8 +233,7 @@
     width: 100%;
     li{
       float: left;
-      margin: 10px 20px;
-      width: 80px;
+      padding: 0 15px;
       height: 30px;
       text-align: center;
       line-height: 30px;

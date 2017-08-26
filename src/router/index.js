@@ -20,6 +20,7 @@ import yuq from '../components/main/yuq.vue'
 import fko from '../components/main/fko.vue'
 import huj from '../components/main/huj.vue'
 import reportList from '../components/main/reportList.vue'
+import groupList from '../components/main/grop_list.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -113,8 +114,12 @@ export default new Router({
           path: 'reportList',
           name: 'reportList',
           component: reportList,
+        },
+        {
+          path: 'groupList',
+          name: 'groupList',
+          component: groupList,
         }
-
       ]
     },
   ]

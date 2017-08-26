@@ -29,8 +29,8 @@
           <ul class="company clearFix">
             <li class="first">
               <div>国家名称</div>
-              <div>净额(亿)</div>
-              <div>存量(亿)</div>
+              <div>净额(亿元)</div>
+              <div>存量(亿元)</div>
             </li>
             <li v-for="item in cityes">
               <div>{{item.name}}</div>
@@ -49,7 +49,7 @@
             <li class="first clearFix">
               <div>企业名称</div>
               <div>规模</div>
-              <div>投资金额(亿)</div>
+              <div>投资金额(亿元)</div>
               <div>国家</div>
             </li>
             <li v-for="item in company" class="clearFix">
@@ -293,7 +293,7 @@
     }
     .test1{
       height: 400px;
-      background:url("../../images/obr.png") no-repeat center;
+      background:url("../../images/ydyl.png") no-repeat center;
       background-size: 100% 100%;
     }
     .one{

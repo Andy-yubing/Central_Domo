@@ -10,7 +10,7 @@
                      size="large">
             <div>
               <div class="bottom_line">
-                <span class="big_text">选择地区</span>
+                <span class="big_text">选择产业</span>
                 <div class="R_box">
                   <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">下载产业模板</el-button>
                   <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">提交产业模板</el-button>
@@ -29,34 +29,34 @@
                   <div class="F_box">
                     <span class="sp_box">城投</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元&nbsp;
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元&nbsp;
                   </div>
                   <div class="F_box">
                     <span class="sp_box">旅游</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元&nbsp;
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元&nbsp;
                   </div>
                   <div class="F_box">
-                    <span class="sp_box">石油化工</span>
+                    <span class="sp_box">物流</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                 </div>
                 <div class="list">
                   <div class="F_box">
                     <span class="sp_box">电子</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
                     <span class="sp_box">投资</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
                     <span class="sp_box">建筑工程</span>
                     <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                 </div>
               </div>
@@ -67,29 +67,29 @@
                 <div class="list">
                   <div class="F_box">
                     <span class="sp_box">城投</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
                     <span class="sp_box">旅游</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
-                    <span class="sp_box">石油化工</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <span class="sp_box">物流</span>
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                 </div>
                 <div class="list">
                   <div class="F_box">
                     <span class="sp_box">电子</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
                     <span class="sp_box">投资</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                   <div class="F_box">
                     <span class="sp_box">建筑工程</span>
-                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;万元
+                    <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
                   </div>
                 </div>
               </div>
@@ -122,39 +122,39 @@
             <input type="text" class="Ip_box" value="20%">
           </div>
           <div class="F_box">
-            <span class="sp_box">石油化工</span>
+            <span class="sp_box">物流</span>
             <input type="text" class="Ip_box" value="20%">
           </div>
         </div>
-        <div class="list">
-          <div class="F_box">
-            <span class="sp_box">电子</span>
-            <input type="text" class="Ip_box" value="20%">
-          </div>
-          <div class="F_box">
-            <span class="sp_box">建筑工程</span>
-            <input type="text" class="Ip_box" value="20%">
-          </div>
-          <div class="F_box">
-            <span class="sp_box">投资</span>
-            <input type="text" class="Ip_box" value="20%">
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="Bto_btn" @click="showOne">诊断处方</div>
+        <!--<div class="list">-->
+          <!--<div class="F_box">-->
+            <!--<span class="sp_box">电子</span>-->
+            <!--<input type="text" class="Ip_box" value="20%">-->
+          <!--</div>-->
+          <!--<div class="F_box">-->
+            <!--<span class="sp_box">建筑工程</span>-->
+            <!--<input type="text" class="Ip_box" value="20%">-->
+          <!--</div>-->
+          <!--<div class="F_box">-->
+            <!--<span class="sp_box">投资</span>-->
+            <!--<input type="text" class="Ip_box" value="20%">-->
+          <!--</div>-->
+        <!--</div>-->
+        <div >
+          <div class="Bto_btn" @click="showOne">诊断结果</div>
           <div class="Bto_btn" @click="showTwo">产业平滑曲线样例</div>
         </div>
         <div v-show="isShow" class="show_box">
           <div class="left_box">三产业具有不同的利润率和成长周期，物流的利润率最低、波动幅度最小，城投的利润率最高、波动幅度最大。3产业进行组合，将产业进行叠加，形成一条平滑的波动曲线，即企业的收益曲线，则企业规避了单个产业利润率降低的风险，得到了收益的持续增长。</div>
-          <div class="Bto_btn">诊断结果</div>
+          <div class="Bto_btn">分析师在线</div>
         </div>
         <div v-show="isGo" class="go_box">
           <img src="../../images/result.jpg" alt="">
         </div>
-        <ul class="con_box">
+        <!--<ul class="con_box">
           <li>三个产业具有不同的利润率和成长周期，物流的利润率最低、波动幅度最小，城投的利润率最高、波动幅度最大。 三个产业进行组合，将产业</li>
           <li>三个产业进行组合，将产业进行叠加，形成一条平滑的波动曲线，即企业的收益曲线，则企业规避了单个产业利润率降低的风险，得到了收益的持续增长.</li>
-        </ul>
+        </ul>-->
       </div>
     </div>
 </template>
@@ -184,11 +184,11 @@
           xAxis: {
             type: 'category',
             boundaryGap: true,
-            data: ['0','10','20','30','40','50','60','70','80','90','100','150']
+            data: ['2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017']
           },
           yAxis: {
+            name:'单位：亿元',
             type: 'value',
-
           },
           series: [
             {
@@ -296,11 +296,10 @@
   .list{
     height: 50px;
     width: 100%;
+    margin: 20px auto 50px;
     background-color: #f1f4fc;
-    margin-top: 20px;
-    margin-bottom: 50px;
     .F_box{
-      text-align: center;
+      text-align: left;
       width: 33.33%;
       height:100%;
       line-height: 50px;
@@ -321,6 +320,7 @@
         line-height: 30px;
         text-align: center;
         color: white;
+        margin-right: 20px;
       }
     }
   }
