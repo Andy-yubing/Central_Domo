@@ -9,7 +9,7 @@
         </div>
         <ul class="area clearFix">
           <a href="javascript:;" v-for="(area,index) in areas">
-            <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area.name}}</li>
+            <li  @click="addClass(index)" :class="{active:area.flag}">{{area.name}}</li>
           </a>
         </ul>
       </div>
@@ -19,7 +19,7 @@
         </div>
         <ul class="area clearFix">
           <a href="javascript:;" v-for="(type,index) in types">
-            <li @click="addTypeClass(index)" :class="{active:typeCode==index}">{{type}}</li>
+            <li @click="addTypeClass(index)" :class="{active:type.flag}">{{type.name}}</li>
           </a>
         </ul>
       </div>
@@ -131,27 +131,43 @@
             {name:'河北省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
           ],
           types:[
-            '建材','机械','旅游','建筑工程','公众事业','电子','石油石化','军工',
-            '投资','新能源','TMT','农业','电力','煤炭','矿业','化工',
-            '地产','科研','金融','冶金','物流','现代服务','商贸','城投','交通运输','其他'
+            {name:'建材',flag:false},{name:'机械',flag:false},{name:'旅游',flag:false},{name:'建筑工程',flag:false},{name:'公众事业',flag:false},{name:'电子',flag:false},{name:'石油石化',flag:false},{name:'军工',flag:false},
+            {name:'投资',flag:false},{name:'新能源',flag:false},{name:'TMT',flag:false},{name:'农业',flag:false},{name:'电力',flag:false},{name:'煤炭',flag:false},{name:'矿业',flag:false},{name:'化工',flag:false},
+            {name:'地产',flag:false},{name:'科研',flag:false},{name:'金融',flag:false},{name:'冶金',flag:false},{name:'物流',flag:false},{name:'现代服务',flag:false},{name:'商贸',flag:false},{name:'城投',flag:false},{name:'交通运输',flag:false},{name:'其他',flag:false}
           ],
           times:[
             '全部','今日','昨日','一周','30天'
           ],
           oneCode:0,
           timeCode:0,
-          typeCode:0
+          typeCode:0,
         };
       },
       methods:{
         addClass(index){
-          this.oneCode = index
+          for(let i=0;i<this.areas.length;i++){
+            if(i == index){
+              if(this.areas[i].flag){
+                this.areas[i].flag = false
+              }else{
+                this.areas[i].flag = true
+              }
+            }
+          }
         },
         addTimeClass(index){
           this.timeCode = index
         },
         addTypeClass(index){
-          this.typeCode = index
+          for(let i=0;i<this.types.length;i++){
+            if(i == index){
+              if(this.types[i].flag){
+                this.types[i].flag = false
+              }else{
+                this.types[i].flag = true
+              }
+            }
+          }
         }
       }
     }
@@ -161,6 +177,7 @@
   .area{
     width: 100%;
     li{
+      margin: 5px;
       padding: 0 10px;
       float: left;
       height: 30px;

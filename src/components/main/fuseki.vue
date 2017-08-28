@@ -44,7 +44,7 @@
       </div>
       <ul class="area clearFix">
         <a href="javascript:;" v-for="(area,index) in areas">
-          <li  @click="addClass(index)" :class="{active:oneCode==index}">{{area.name}}</li>
+          <li  @click="addClass(index)" :class="{active:area.flag}">{{area.name}}</li>
         </a>
       </ul>
     </div>
@@ -65,9 +65,9 @@
          <div>{{item.business}}</div>
          <div>{{item.property}}</div>
          <div>
-           <a href="javascript:;">
+           <router-link to="/body/fusekiList">
              <span class="item_btn">对标</span>
-           </a>
+           </router-link>
            <a href="javascript:;">
              <span class="item_btn">关注</span>
            </a>
@@ -83,7 +83,7 @@
   import Element from 'element-ui'
   Vue.use(Element)
   const Options = ['城投', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
-  const Options2 = ['中外合资企业', '物流', '旅游', '建筑工程','公用事业','电子', '石油化工', '房地产','现代服务', '机械','矿业'];
+  const Options2 = ['中外合资企业', '私营企业', '国有及国有控股企业', '外商独资企业','其它'];
   const Options3 = ['20人以下', '20-99人', '100-499人', '500-999人','1000-9999人','10000人以上', '不限'];
   export default {
     data() {
@@ -143,8 +143,8 @@
             business:'地产',
             property:'私营企业'
           }
-        ]
-
+        ],
+        isActive:false
       };
     },
     methods: {
@@ -178,7 +178,15 @@
         this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities3.length;
       },
       addClass(index){
-        this.oneCode = index
+          for(let i=0;i<this.areas.length;i++){
+            if(i == index){
+              if(this.areas[i].flag){
+                this.areas[i].flag = false
+              }else{
+                this.areas[i].flag = true
+              }
+            }
+          }
       },
 
     }
@@ -238,6 +246,7 @@
       text-align: center;
       line-height: 30px;
       border-radius: 10px;
+      margin:5px;
     }
     a{
       color: black;

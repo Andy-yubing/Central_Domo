@@ -84,7 +84,7 @@
           areas:[
             {name:'黑龙江省',flag:false},{name:'广东省',flag:false},{name:'北京市',flag:false},{name:'上海市',flag:false},{name:'香港特别行政区',flag:false},{name:'浙江省',flag:false},{name:'山西省',flag:false},{name:'云南省',flag:false},{name:'河北省',flag:false},{name:'吉林省',flag:false},
             {name:'江西省',flag:false},{name:'河南省',flag:false},{name:'内蒙古自治区',flag:false},{name:'安徽省',flag:false},{name:'西藏自治区',flag:false},{name:'天津市',flag:false},{name:'青海省',flag:false},{name:'宁夏回族自治区 ',flag:false},{name:'新疆维吾尔自治区',flag:false},
-            {name:'河北省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
+            {name:'山东省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
           ],
           times:[
             '地产','煤炭','旅游','建筑工程','公众事业','电子','石油石化','军工',
@@ -98,7 +98,7 @@
       },
       methods:{
         addTimeClass(index){
-          var arrs=[[1,2,3,4],[2,6,8],[9,3,14],[20,2,16]];
+          var arrs=[[1,2,3,4],[2,6,8,11,19],[9,3,14],[20,2,16]];
           this.timeCode = index;
           if(this.timeCode == 1){
             this.message=[
@@ -125,6 +125,24 @@
               {
                 name:'冀中能源集团有限责任公司',
                 website:'河北',
+                size:' 大型',
+                time:'国有企业'
+              },
+              {
+                name:'山东能源集团有限公司',
+                website:'山东',
+                size:' 大型',
+                time:'国有企业'
+              },
+              {
+                name:'晋能有限责任公司',
+                website:'山西',
+                size:' 大型',
+                time:'国有企业'
+              },
+              {
+                name:'河南能源化工集团有限公司',
+                website:'河南',
                 size:' 大型',
                 time:'国有企业'
               }]
