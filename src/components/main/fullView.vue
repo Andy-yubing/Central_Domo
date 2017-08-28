@@ -1,7 +1,7 @@
 <template>
   <div class="fullView">
     <p class="fullView_p">产业全国分布
-      <a href="/body/diagnose"><img src="../../images/zhenduan.png" height="20" width="18" alt=""> 企业诊断</a>
+      <a href="javascript:;" @click="dialogTableVisible = true"><img src="../../images/zhenduan.png" height="20" width="18" alt=""> 企业诊断</a>
     </p>
     <div class="fullView_china">
     </div>
@@ -31,6 +31,98 @@
         <div class="has_float has_vocation">{{list.time}}</div>
       </li>
     </ul>
+    <el-dialog title="选择企业产业组合" :visible.sync="dialogTableVisible" size="large">
+          <div>
+            <div class="bottom_line">
+              <span class="big_text">选择产业</span>
+              <div class="R_box">
+                <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">下载产业模板</el-button>
+                <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">提交产业模板</el-button>
+              </div>
+            </div>
+            <ul class="area clearFix">
+              <a href="javascript:;" v-for="(area,index) in areas">
+                <li @click="addClass(index)" :class="{active:oneCode==index}">{{area}}</li>
+              </a>
+            </ul>
+            <div class="bottom_line">
+              <span class="big_text">产业利润</span>
+            </div>
+            <div>
+              <div class="list">
+                <div class="F_box">
+                  <span class="sp_box">城投</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元&nbsp;
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">旅游</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年&nbsp;
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元&nbsp;
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">建筑工程</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+              </div>
+              <div class="list">
+                <div class="F_box">
+                  <span class="sp_box">电子</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">投资</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">石油石化</span>
+                  <input type="text" class="Ip_box" placeholder="输入年份">&nbsp;年
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+              </div>
+            </div>
+            <div class="bottom_line">
+              <span class="big_text">当前成本</span>
+            </div>
+            <div>
+              <div class="list">
+                <div class="F_box">
+                  <span class="sp_box">城投</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">旅游</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">建筑工程</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+              </div>
+              <div class="list">
+                <div class="F_box">
+                  <span class="sp_box">电子</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">投资</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+                <div class="F_box">
+                  <span class="sp_box">石油石化</span>
+                  <input type="text" class="Ip_box" placeholder="输入当前利润">&nbsp;亿元
+                </div>
+              </div>
+            </div>
+          </div>
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogTableVisible = false" class="G_bg">取 消</el-button>
+            <el-button type="primary" @click="dialogTableVisible = false" class="G_bg">提交并开始诊断</el-button>
+          </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -75,6 +167,11 @@ export default {
           time: '8/4'
         }
       ],
+       areas: [
+         '物流', '旅游', '建筑工程', '公用事业', '电子','石油石化', '军工', '投资', '新能源', 'TMT',
+        '农业', '机械', '矿业', '建材', '科研', '金融', '冶金', '房地产', '现代服务', '煤炭'
+      ],
+      oneCode: 0,
       heatData:[
         [0,0,221],[0,1,953],[0,2,425],[0,3,444],[0,4,740],[0,5,738],[0,6,603],[0,7,1000],[0,8,380],[0,9,806],[0,10,809],[0,11,390],
         [1,0,183],[1,1,676],[1,2,402],[1,3,579],[1,4,427],[1,5,291],[1,6,118],[1,7,107],[1,8,803],[1,9,756],[1,10,838],[1,11,625],
@@ -104,21 +201,25 @@ export default {
         },
         {
           btn: '交通运输',
-          name: '中国南航 中国远洋 南方航空 国际航空',
+          name: '南方航空 中远航运 中国国航 中海发展',
           website: '',
           time: '8/15'
         },
         {
           btn: '物流行业',
-          name: '中外运 中远海运 顺丰 中国石油',
+          name: '中远海运 顺丰速运 远成物流 德邦物流',
           website: '',
           time: '8/15'
         },
 
       ],
+      dialogTableVisible: false,
     }
   },
   methods: {
+     addClass(index) {
+      this.oneCode = index
+    },
     distribution() {
       var vm=this;
       let chinaDom = document.getElementsByClassName('fullView_china')[0];
@@ -428,6 +529,9 @@ export default {
         },
         geo: {
           map: 'china',
+          left: '10',
+          right: '35%',
+          zoom: 1,
           label: {
             emphasis: {
               show: false
@@ -645,15 +749,6 @@ export default {
       var days = ['2011', '2012', '2013',
         '2014', '2015', '2016', '2017'];
       /*房地产*/
-//      var data = [
-//        [0,0,221],[0,1,953],[0,2,425],[0,3,444],[0,4,740],[0,5,738],[0,6,603],[0,7,1000],[0,8,380],[0,9,806],[0,10,809],[0,11,390],
-//        [1,0,183],[1,1,676],[1,2,402],[1,3,579],[1,4,427],[1,5,291],[1,6,118],[1,7,107],[1,8,803],[1,9,756],[1,10,838],[1,11,625],
-//        [2,0,713],[2,1,555],[2,2,243],[2,3,578],[2,4,599],[2,5,223],[2,6,222],[2,7,159],[2,8,335],[2,9,165],[2,10,484],[2,11,237],
-//        [3,0,147],[3,1,792],[3,2,732],[3,3,685],[3,4,366],[3,5,773],[3,6,592],[3,7,284],[3,8,234],[3,9,530],[3,10,283],[3,11,182],
-//        [4,0,105],[4,1,926],[4,2,170],[4,3,373],[4,4,194],[4,5,707],[4,6,730],[4,7,362],[4,8,703],[4,9,755],[4,10,303],[4,11,490],
-//        [5,0,236],[5,1,146],[5,2,818],[5,3,982],[5,4,377],[5,5,533],[5,6,529],[5,7,806],[5,8,884],[5,9,352],[5,10,963],[5,11,614],
-//        [6,0,777],[6,1,519],[6,2,551],[6,3,949],[6,4,316],[6,5,743],[6,6,620],[6,7,0],[6,8,0],[6,9,0],[6,10,0],[6,11,0]
-//      ];
       var data=this.heatData;
       /*交通运输*/
       var data2 = [
@@ -802,7 +897,7 @@ export default {
           }
         },
         legend: {
-          data:['产业组合产值']
+          data:['企业数量']
         },
         grid: {
           show:false,
@@ -829,7 +924,7 @@ export default {
         },
         series : [
           {
-            name:'产业组合产值',
+            name:'企业数量',
             type:'bar',
             label: {
               normal: {
@@ -971,5 +1066,54 @@ export default {
     margin-top: 30px;
   }
 }
-
+.area {
+  width: 100%;
+  li {
+    float: left;
+    margin: 10px 20px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+  }
+  a {
+    color: black;
+  }
+  .block {
+    padding-top: 5px;
+  }
+}
+.list {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #f1f4fc;
+  .F_box {
+    text-align: left;
+    width: 33.33%; 
+    height: 100%;
+    line-height: 50px;
+    float: left;
+    .Ip_box {
+      display: inline-block;
+      width: 80px;
+      height: 30px;
+      border: 1px solid #2d7662;
+      border-radius: 5px;
+      padding: 0 10px; 
+    }
+    .sp_box {
+      display: inline-block;
+      height: 32px;
+      padding: 2px 15px; 
+      background-color: #2d7662;
+      border-radius: 5px;
+      line-height: 30px;
+      text-align: center;
+      color: white;
+      margin-right: 10px;
+    }
+  }
+}
 </style>

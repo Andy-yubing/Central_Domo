@@ -8,7 +8,7 @@
         <router-link v-for="(item,index) in list" key="index" :to= "item.link" class="header_btn" @click.native="addClass(index)" :class="{active:avtiveAdd==index}">{{item.name}}</router-link>
       </div>
       <div class="login">
-        <img src="../../images/login.png" alt="">
+          <h5>登录/注册</h5>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@
       position: absolute;
       top: 20px;
       right: 70px;
-      width: 20px;
+      color: #FFF; 
       height: 20px;
       img{
         width: 100%;
