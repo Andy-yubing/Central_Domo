@@ -145,10 +145,10 @@
             <p>河南煤业化工集团</p>
           </div>
         </span>
-        <span> 
+        <span>
            <h5>对标企业<el-button class="fr" @click="addFalse($event)">添加对标企业</el-button></h5>
            <img @click="addFalse($event)" src="../../images/add.png" height="177" width="177" alt="" v-show="img_show">
-           <div v-show="img_hide">  
+           <div v-show="img_hide">
               <p v-for="item in addPlist">{{item}}</p>
            </div>
         </span>
@@ -157,7 +157,7 @@
       :visible.sync="add"
       size="tiny">
       <h5 class="text-center addH5">企业对标</h5>
-        
+
        <el-row class="demo-autocomplete">
         <el-col :span="24">
           <el-autocomplete class="block-input" v-model="state1" :fetch-suggestions="querySearch" placeholder="请输入内容" @select="handleSelect">
@@ -174,70 +174,7 @@
 <script>
 import echarts from 'echarts'
 export default {
-  mounted() {
-    var myChart = echarts.init(document.getElementById('main'));
-    var option = {
-      tooltip: {
-        trigger: 'axis'
-      },
-      legend: {
-        data: ['生成平滑曲线', '城投', '物流', '旅游'],
-        selected: {
-          '生成平滑曲线': false,
-        },
-      },
-      grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-      },
-      xAxis: {
-        type: 'category',
-        boundaryGap: true,
-        data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
-      },
-      yAxis: {
-        name: '单位：亿元',
-        type: 'value',
-      },
-      series: [{
-          name: '城投',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          data: [10, 15, 25, 30, 35, 30, 25, 15, 10, 15, 25, 30]
-        },
-        {
-          name: '物流',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          data: [7, 12, 17, 22, 27, 32, 27, 22, 17, 12, 7, 12]
-        },
-        {
-          name: '旅游',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          data: [4, 6, 8, 10, 8, 6, 4, 6, 8, 10, 8, 6]
-        },
-        {
-          name: '生成平滑曲线',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          lineStyle: {
-            normal: {
-              color: '#607615',
-            },
-          },
-          data: [24, 40, 61, 75, 85, 87, 88, 89, 90, 91, 92, 93]
-        }
-      ]
-    };
-    myChart.setOption(option);
-  },
+
   data() {
     return {
       restaurants: [],
@@ -307,6 +244,70 @@ export default {
   },
   mounted() {
       this.restaurants = this.loadAll();
+
+    var myChart = echarts.init(document.getElementById('main'));
+    console.log(myChart)
+    var option = {
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['生成平滑曲线', '城投', '物流', '旅游'],
+        selected: {
+          '生成平滑曲线': false,
+        },
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
+      },
+      yAxis: {
+        name: '单位：亿元',
+        type: 'value',
+      },
+      series: [{
+        name: '城投',
+        type: 'line',
+        stack: '总量',
+        smooth: true,
+        data: [10, 15, 25, 30, 35, 30, 25, 15, 10, 15, 25, 30]
+      },
+        {
+          name: '物流',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          data: [7, 12, 17, 22, 27, 32, 27, 22, 17, 12, 7, 12]
+        },
+        {
+          name: '旅游',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          data: [4, 6, 8, 10, 8, 6, 4, 6, 8, 10, 8, 6]
+        },
+        {
+          name: '生成平滑曲线',
+          type: 'line',
+          stack: '总量',
+          smooth: true,
+          lineStyle: {
+            normal: {
+              color: '#607615',
+            },
+          },
+          data: [24, 40, 61, 75, 85, 87, 88, 89, 90, 91, 92, 93]
+        }
+      ]
+    };
+    myChart.setOption(option);
   }
 }
 
@@ -364,12 +365,12 @@ export default {
       height: 30px;
       border: 1px solid #2d7662;
       border-radius: 5px;
-      padding: 0 10px; 
+      padding: 0 10px;
     }
     .sp_box {
       display: inline-block;
       height: 32px;
-      padding: 2px 15px; 
+      padding: 2px 15px;
       background-color: #2d7662;
       border-radius: 5px;
       line-height: 30px;
@@ -418,45 +419,45 @@ export default {
   }
 }
 .company{
-  margin-top: 30px; 
+  margin-top: 30px;
   height: 350px;
   font-size: 0;
-  margin-left: 50px;  
+  margin-left: 50px;
   span{
-    font-size: 14px; 
+    font-size: 14px;
     vertical-align: middle;
     display: inline-block;
-    height: 100%; 
-    width: 50%; 
+    height: 100%;
+    width: 50%;
     &:nth-child(1){
-      //border-right: 10px solid #ccc; 
+      //border-right: 10px solid #ccc;
     }
     &:nth-child(2){
       >img{
         display: block;
-        margin: 50px auto;  
+        margin: 50px auto;
         cursor: pointer;
       }
     }
     h5{
-      font-size: 18px; 
+      font-size: 18px;
       margin-bottom: 20px;
     }
     div{
       p{
-        line-height: 30px; 
+        line-height: 30px;
       }
     }
   }
 }
 .addH5{
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 .block-input{
-  display: block; 
+  display: block;
 }
 .fr{
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 </style>
