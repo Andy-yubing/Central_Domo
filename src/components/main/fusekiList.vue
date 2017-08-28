@@ -86,9 +86,8 @@
         },
         addCompany(){
          this.dialogFormVisible = false
-
           if(this.form.name){
-            if(this.form.name == '淘宝'){
+            if(this.form.name == '神华集团'){
               this.arr = data[0].age
               this.color = data[0].color
               this.manage = data[1].manage
@@ -96,7 +95,7 @@
               this.job = data[3].job
               this.jobName = data[3].name
               this.jobTittle = data[4].jobTittle
-              this.Play(data)
+              this.Play()
             }
             for(var i=0;i<this.corps.length;i++){
               if(this.corps.length >= 2){
@@ -215,7 +214,7 @@
               {
                 name:'',
                 type:'bar',
-                data:[10, 52, 200]
+                data:[2008, 34526, 68532]
               },
               {
                 name:'',
@@ -266,7 +265,7 @@
               {
                 name:'',
                 type:'bar',
-                data:[10, 52, 200, 334]
+                data:[1, 3025, 18956, 56894]
               },
               {
                 name:'',
