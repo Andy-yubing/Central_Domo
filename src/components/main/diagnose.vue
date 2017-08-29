@@ -113,16 +113,20 @@
       <div class="list">
         <div class="F_box">
           <span class="sp_box">城投</span>
-          <input type="text" class="Ip_box" value="20%">
+          <input type="text" class="Ip_box" @change="eventList" v-model="val_one">
         </div>
         <div class="F_box">
           <span class="sp_box">旅游</span>
-          <input type="text" class="Ip_box" value="20%">
+          <input type="text" class="Ip_box" @change="eventList" v-model="val_two">
         </div>
         <div class="F_box">
           <span class="sp_box">物流</span>
-          <input type="text" class="Ip_box" value="20%">
+          <input type="text" class="Ip_box" @change="eventList" v-model="val_three">
         </div>
+       <!--  <div class="F_box">
+         <span class="sp_box">投资</span>
+         <input type="text" class="Ip_box" @change="eventList" v-model="val_four">
+       </div> -->
       </div>
       <div class="list">
         <div class="Bto_btn" @click="showOne">诊断结果</div>
@@ -137,7 +141,7 @@
       </div>
     </div>
     <div class="company">
-        <span>
+      <span>
           <h5>匹配企业</h5>
           <div>
             <p>山西煤炭运销集团</p>
@@ -145,7 +149,7 @@
             <p>河南煤业化工集团</p>
           </div>
         </span>
-        <span>
+      <span>
            <h5>对标企业<el-button class="fr" @click="addFalse($event)">添加对标企业</el-button></h5>
            <img @click="addFalse($event)" src="../../images/add.png" height="177" width="177" alt="" v-show="img_show">
            <div v-show="img_hide">
@@ -153,12 +157,9 @@
            </div>
         </span>
     </div>
-    <el-dialog
-      :visible.sync="add"
-      size="tiny">
+    <el-dialog :visible.sync="add" size="tiny">
       <h5 class="text-center addH5">企业对标</h5>
-
-       <el-row class="demo-autocomplete">
+      <el-row class="demo-autocomplete">
         <el-col :span="24">
           <el-autocomplete class="block-input" v-model="state1" :fetch-suggestions="querySearch" placeholder="请输入内容" @select="handleSelect">
           </el-autocomplete>
@@ -179,7 +180,7 @@ export default {
     return {
       restaurants: [],
       state1: '',
-      add:false,
+      add: false,
       isShow: false,
       isGo: false,
       areas: [
@@ -191,25 +192,31 @@ export default {
       dialogFormVisible: false,
       formLabelWidth: '120px',
       addPlist: [],
-      addItem:"",
-      img_show:true,
-      img_hide:false,
+      addItem: "",
+      img_show: true,
+      img_hide: false,
+      list1: [10, 15, 25, 30, 35, 30, 25, 15, 10, 15, 25, 30],
+      list2: [7, 12, 17, 22, 27, 32, 27, 22, 17, 12, 7, 12],
+      list3: [4, 6, 8, 10, 8, 6, 4, 6, 8, 10, 8, 6],
+      list4: [24, 40, 61, 75, 85, 87, 88, 89, 90, 91, 92, 93],
+      val_one: "",
+      val_two: "",
+      val_three: "",
+      val_four: "",
     };
   },
   methods: {
-    addSure(){
+    addSure() {
       this.add = false;
-      if(this.addPlist.indexOf(this.addItem) == -1){
-          this.addPlist.push(this.addItem);
+      if (this.addPlist.indexOf(this.addItem) == -1) {
+        this.addPlist.push(this.addItem);
       }
-      //console.log(this.addPlist);
       this.img_show = false;
       this.img_hide = true;
     },
-    addFalse(el){
+    addFalse(el) {
       this.add = true;
       this.state1 = "";
-     // console.log(el);
     },
     addClass(index) {
       this.oneCode = index
@@ -223,91 +230,168 @@ export default {
       this.isGo = true
     },
     querySearch(queryString, cb) {
-        var restaurants = this.restaurants;
-        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
-        // 调用 callback 返回建议列表的数据
-        cb(results);
+      var restaurants = this.restaurants;
+      var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+      // 调用 callback 返回建议列表的数据
+      cb(results);
     },
     loadAll() {
-        return [
-          { "value": "山西煤炭运销集团", "address": "12" },
-          { "value": " 河南煤业化工集团", "address": "13" },
-          { "value": " 云南城投", "address": "13" },
-          { "value": " 广州城投", "address": "13" },
-          { "value": " 南宁城投", "address": "13" },
-          { "value": " 桂林城投", "address": "13" },
-        ];
+      return [
+        { "value": "山西煤炭运销集团", "address": "12" },
+        { "value": " 河南煤业化工集团", "address": "13" },
+        { "value": " 云南城投", "address": "13" },
+        { "value": " 广州城投", "address": "13" },
+        { "value": " 南宁城投", "address": "13" },
+        { "value": " 桂林城投", "address": "13" },
+      ];
     },
     handleSelect(item) {
       this.addItem = item.value;
     },
+    broken(dataOne, dataTwo, dataThree, dataFour) {
+      this.restaurants = this.loadAll();
+      var myChart = echarts.init(document.getElementById('main'));
+      var option = {
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['生成平滑曲线', '城投', '物流', '旅游'],
+          selected: {
+            '生成平滑曲线': false,
+          },
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: true,
+          data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
+        },
+        yAxis: {
+          name: '单位：亿元',
+          type: 'value',
+        },
+        series: [{
+            name: '城投',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            data: dataOne
+          },
+          {
+            name: '物流',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            data: dataTwo
+          },
+          {
+            name: '旅游',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            data: dataThree
+          },
+          {
+            name: '生成平滑曲线',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            lineStyle: {
+              normal: {
+                color: '#607615',
+              },
+            },
+            data: dataFour
+          }
+        ]
+      };
+      myChart.setOption(option);
+    },
+    eventList() {
+      let vm = this;
+      let listOne = [],
+        listTwo = [],
+        listThree = [],
+        listFour = [];
+
+        if(vm.val_one != ""){
+          for (var i = 0; i < vm.list1.length; i++) {
+            let item = parseInt(vm.list1[i]) + parseInt(vm.val_one);
+            if (item > 100) {
+              this.$message('大于100%');
+              return false;
+            } else {
+              listOne.push(item);
+            }
+          }
+        }else{
+          listOne =  vm.list1;
+        }
+
+      
+      console.log(listOne);
+      if (vm.val_two != "") {
+        for (var i = 0; i < vm.list2.length; i++) {
+          let item = parseInt(vm.list2[i]) + parseInt(vm.val_two);
+          if (item > 100) {
+            this.$message('大于100%');
+            return false;
+          } else {
+            listTwo.push(item);
+          }
+        }
+      }else{
+        listTwo =  vm.list2;
+      }
+      console.log(listTwo);
+
+      if (vm.val_three != "") {
+        for (var i = 0; i < vm.list3.length; i++) {
+          let item = parseInt(vm.list3[i]) + parseInt(vm.val_three);
+          if (item > 100) {
+            this.$message('大于100%');
+            return false;
+          } else {
+            listThree.push(item);
+          }
+        }
+      }else{
+        listThree = vm.list3;
+      }
+
+      if(vm.val_four!=""){
+          for (var i = 0; i < vm.list4.length; i++) {
+            let item = parseInt(vm.list4[i]) + parseInt(vm.val_four);
+            if (item > 100) {
+              this.$message('大于100%');
+              return false;
+            } else {
+              listFour.push(item);
+            }
+          } 
+      }else{
+         listFour =  vm.list4;
+      }
+      this.broken(listOne, listTwo, listThree, listFour);
+    }
+
   },
   mounted() {
-      this.restaurants = this.loadAll();
+    this.broken(this.list1, this.list2, this.list3, this.list4);
+  },
+  watch: {
+    listA: function(val, oldVal) {
+      console.log(val);
+    },
+    listB: function() {
 
-    var myChart = echarts.init(document.getElementById('main'));
-    console.log(myChart)
-    var option = {
-      tooltip: {
-        trigger: 'axis'
-      },
-      legend: {
-        data: ['生成平滑曲线', '城投', '物流', '旅游'],
-        selected: {
-          '生成平滑曲线': false,
-        },
-      },
-      grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-      },
-      xAxis: {
-        type: 'category',
-        boundaryGap: true,
-        data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
-      },
-      yAxis: {
-        name: '单位：亿元',
-        type: 'value',
-      },
-      series: [{
-        name: '城投',
-        type: 'line',
-        stack: '总量',
-        smooth: true,
-        data: [10, 15, 25, 30, 35, 30, 25, 15, 10, 15, 25, 30]
-      },
-        {
-          name: '物流',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          data: [7, 12, 17, 22, 27, 32, 27, 22, 17, 12, 7, 12]
-        },
-        {
-          name: '旅游',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          data: [4, 6, 8, 10, 8, 6, 4, 6, 8, 10, 8, 6]
-        },
-        {
-          name: '生成平滑曲线',
-          type: 'line',
-          stack: '总量',
-          smooth: true,
-          lineStyle: {
-            normal: {
-              color: '#607615',
-            },
-          },
-          data: [24, 40, 61, 75, 85, 87, 88, 89, 90, 91, 92, 93]
-        }
-      ]
-    };
-    myChart.setOption(option);
+    }
   }
 }
 
@@ -418,45 +502,49 @@ export default {
     height: 100%;
   }
 }
-.company{
+
+.company {
   margin-top: 30px;
   height: 350px;
   font-size: 0;
   margin-left: 50px;
-  span{
+  span {
     font-size: 14px;
     vertical-align: middle;
     display: inline-block;
     height: 100%;
     width: 50%;
-    &:nth-child(1){
+    &:nth-child(1) {
       //border-right: 10px solid #ccc;
     }
-    &:nth-child(2){
-      >img{
+    &:nth-child(2) {
+      >img {
         display: block;
         margin: 50px auto;
         cursor: pointer;
       }
     }
-    h5{
+    h5 {
       font-size: 18px;
       margin-bottom: 20px;
     }
-    div{
-      p{
+    div {
+      p {
         line-height: 30px;
       }
     }
   }
 }
-.addH5{
+
+.addH5 {
   margin-bottom: 20px;
 }
-.block-input{
+
+.block-input {
   display: block;
 }
-.fr{
+
+.fr {
   margin-right: 20px;
 }
 
