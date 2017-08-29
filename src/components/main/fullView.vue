@@ -941,8 +941,7 @@ export default {
         myChart.setOption(option, true);
       }
       myChart.on("click",function (param) {
-        console.log(param.name)
-        vm.$router.push({ path:'groupList'})
+        vm.$router.push({ path:'groupList', query: {list: param.name}})
       });
       myChart.setOption(option);
     }
@@ -1091,7 +1090,7 @@ export default {
   background-color: #f1f4fc;
   .F_box {
     text-align: left;
-    width: 33.33%; 
+    width: 33.33%;
     height: 100%;
     line-height: 50px;
     float: left;
@@ -1101,12 +1100,12 @@ export default {
       height: 30px;
       border: 1px solid #2d7662;
       border-radius: 5px;
-      padding: 0 10px; 
+      padding: 0 10px;
     }
     .sp_box {
       display: inline-block;
       height: 32px;
-      padding: 2px 15px; 
+      padding: 2px 15px;
       background-color: #2d7662;
       border-radius: 5px;
       line-height: 30px;

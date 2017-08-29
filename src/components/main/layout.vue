@@ -79,7 +79,48 @@
             }]
           },
           value1: '',
-          message:[
+          message:[{
+            name:'神华集团',
+            website:'北京',
+            size:' 大型',
+            time:'国有企业'
+          },
+            {
+              name:'中国中煤能源集团',
+              website:'北京',
+              size:' 大型',
+              time:'国有企业'
+            },
+            {
+              name:'山西焦煤集团有限责任公司',
+              website:'山西',
+              size:' 大型',
+              time:'国有企业'
+            },
+            {
+              name:'冀中能源集团有限责任公司',
+              website:'河北',
+              size:' 大型',
+              time:'国有企业'
+            },
+            {
+              name:'山东能源集团有限公司',
+              website:'山东',
+              size:' 大型',
+              time:'国有企业'
+            },
+            {
+              name:'晋能有限责任公司',
+              website:'山西',
+              size:' 大型',
+              time:'国有企业'
+            },
+            {
+              name:'河南能源化工集团有限公司',
+              website:'河南',
+              size:' 大型',
+              time:'国有企业'
+            }
           ],
           areas:[
             {name:'黑龙江省',flag:false},{name:'广东省',flag:false},{name:'北京市',flag:false},{name:'上海市',flag:false},{name:'香港特别行政区',flag:false},{name:'浙江省',flag:false},{name:'山西省',flag:false},{name:'云南省',flag:false},{name:'河北省',flag:false},{name:'吉林省',flag:false},
@@ -113,8 +154,6 @@
                 website:'北京',
                 size:' 大型',
                 time:'国有企业'
-
-
               },
               {
                 name:'山西焦煤集团有限责任公司',

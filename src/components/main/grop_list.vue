@@ -105,9 +105,9 @@
           {name:'河北省',flag:false},{name:'江苏省',flag:false},{name:'湖北省',flag:false},{name:'贵州省',flag:false},{name:'辽宁省',flag:false},{name:'福建省',flag:false},{name:'广西壮族自治区',flag:false},{name:'陕西省',flag:false},{name:'甘肃省',flag:false},{name:'澳门特别行政区',flag:false},{name:'台湾省',flag:false}
         ],
         times:[
-          {name:'地产',flag:false},{name:'煤炭',flag:false},{name:'旅游',flag:false},{name:'建筑工程',flag:false},{name:'公众事业',flag:false},{name:'电子',flag:false},{name:'石油石化',flag:false},{name:'军工',flag:false},
-          {name:'投资',flag:false},{name:'新能源',flag:false},{name:'TMT',flag:false},{name:'农业',flag:false},{name:'电力',flag:false},{name:'机械',flag:false},{name:'矿业',flag:false},{name:'化工',flag:false},
-          {name:'建材',flag:false},{name:'科研',flag:false},{name:'金融',flag:false},{name:'冶金',flag:false},{name:'物流',flag:false},{name:'现代服务',flag:false},{name:'商贸',flag:false},{name:'城投',flag:false},{name:'交通运输',flag:false},{name:'服务',flag:false},{name:'其他',flag:false},
+          {name:'地产',flag:false},{name:'煤炭',flag:false},{name:'旅游',flag:false},{name:'建筑工程',flag:false},{name:'运输',flag:false},{name:'设备制造',flag:false},{name:'公众事业',flag:false},{name:'电子',flag:false},{name:'石油石化',flag:false},{name:'军工',flag:false},
+          {name:'投资',flag:false},{name:'新能源',flag:false},{name:'TMT',flag:false},{name:'农业',flag:false},{name:'教育',flag:false},{name:'电商',flag:false},{name:'文化',flag:false},{name:'电力',flag:false},{name:'机械',flag:false},{name:'矿业',flag:false},{name:'化工',flag:false},
+          {name:'建材',flag:false},{name:'科研',flag:false},{name:'金融',flag:false},{name:'冶金',flag:false},{name:'物流',flag:false},{name:'健康',flag:false},{name:'现代服务',flag:false},{name:'商贸',flag:false},{name:'城投',flag:false},{name:'交通运输',flag:false},{name:'服务',flag:false},{name:'其他',flag:false},
         ],
         oneCode:[],
         timeCode:0,
@@ -199,24 +199,25 @@
       },
       active(){
         var currentItem=this.times;
-        for(var i in currentItem){
-          currentItem[i].flag=false;
-          if(currentItem[i].name ==="地产"){
-            currentItem[i].flag=true;
-          }
-          if(currentItem[i].name ==="金融"){
-            currentItem[i].flag=true;
-          }
-          if(currentItem[i].name ==="物流"){
-            currentItem[i].flag=true;
-          }
-          if(currentItem[i].name ==="服务"){
-            currentItem[i].flag=true;
-          }
-          if(currentItem[i].name ==="商贸"){
-            currentItem[i].flag=true;
+        var list = this.$route.query.list
+        var arr = list.split('+')
+//        for(let j in arr){
+//          for(let i in currentItem){
+//            currentItem[i].flag=false;
+//              if(arr[j]===currentItem[i].name){
+//                console.log(currentItem[i].name)
+//                this.flag=true;
+//              }
+//          }
+//        }
+        for(var i=0;i<arr.length;i++){
+          for(var j=0;j<currentItem.length;j++){
+            if(currentItem[j].name === arr[i]){
+              currentItem[j].flag=true;
+            }
           }
         }
+
       }
     },
     mounted(){
