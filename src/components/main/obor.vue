@@ -282,13 +282,13 @@
       }
       .by{
         position: absolute;
-        top: 337px;
-        left: 182px;
+        top: 331px;
+        left: 192px;
       }
       .md{
         position: absolute;
-        top: 225px;
-        right: 360px;
+        top: 231px;
+        right: 378px;
       }
     }
     .test1{

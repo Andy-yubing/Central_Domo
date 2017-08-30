@@ -53,7 +53,7 @@
 <script>
     import echarts from 'echarts'
     import Element from  'element-ui'
-    import data from './data.json'
+    import data from '../data/data.json'
     export default {
       data(){
         return{
@@ -87,16 +87,18 @@
         addCompany(){
          this.dialogFormVisible = false
           if(this.form.name){
-            if(this.form.name == '神华集团'){
-              this.arr = data[0].age
-              this.color = data[0].color
-              this.manage = data[1].manage
-              this.schooling = data[2].schooling
-              this.job = data[3].job
-              this.jobName = data[3].name
-              this.jobTittle = data[4].jobTittle
-              this.Play()
-            }
+           for(var i=0;i<data.length;i++){
+             if(this.form.name == data[i][0]){
+               this.arr = data[i][1].age
+               this.color = data[i][1].color
+               this.manage = data[i][2].manage
+               this.schooling = data[i][3].schooling
+               this.job = data[i][4].job
+               this.jobName = data[i][4].name
+               this.jobTittle = data[i][5].jobTittle
+               this.Play()
+             }
+           }
             for(var i=0;i<this.corps.length;i++){
               if(this.corps.length >= 2){
                 alert('最多匹配三家企业')
