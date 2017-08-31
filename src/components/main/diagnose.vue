@@ -114,14 +114,17 @@
         <div class="F_box">
           <span class="sp_box">城投</span>
           <input type="text" class="Ip_box" @change="eventList" v-model="val_one">
+          %
         </div>
         <div class="F_box">
           <span class="sp_box">旅游</span>
           <input type="text" class="Ip_box" @change="eventList" v-model="val_two">
+          %
         </div>
         <div class="F_box">
           <span class="sp_box">物流</span>
           <input type="text" class="Ip_box" @change="eventList" v-model="val_three">
+          %
         </div>
        <!--  <div class="F_box">
          <span class="sp_box">投资</span>
