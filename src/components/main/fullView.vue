@@ -401,10 +401,9 @@ export default {
         myChart.setOption({
           series: [{
             id: 'map',
-            type: 'scatter',
+            type: 'effectScatter',
             coordinateSystem: 'geo',
             data: convertData(vm.cityList),
-            symbolSize: 12,
             label: {
               emphasis: {
                 show: false
@@ -422,8 +421,12 @@ export default {
               }
             },
              symbolSize: function (val) {
-                return Math.max(val[2] / 1200, 10);
+                return Math.max(val[2] / 1500,10);
             },
+             rippleEffect: {
+                brushType: 'stroke'
+            },
+            coordinateSystem: 'geo',
           }]
         })
       }, 0)
@@ -458,7 +461,6 @@ export default {
             type: 'scatter',
             coordinateSystem: 'geo',
             data: convertData(vm.cityList),
-            symbolSize: 12,
             label: {
               emphasis: {
                 show: false
@@ -470,14 +472,18 @@ export default {
               }
             },
              symbolSize: function (val) {
-                return Math.max(val[2] / 1200, 10);
+                return Math.max(val[2] / 1200, 8);
+            },
+             rippleEffect: {
+                brushType: 'stroke'
             },
             itemStyle: {
               emphasis: {
                 borderColor: '#fff',
                 borderWidth: 1
               }
-            }
+            },
+            coordinateSystem: 'geo',
           }]
         })
       }
