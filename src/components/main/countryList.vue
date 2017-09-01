@@ -303,34 +303,7 @@
                 }
 
                 console.log(params);
-                $.ajax({
-                  async : true,//设置异、同步加载
-                  cache : false,//false就不会从浏览器缓存中加载请求信息了
-                  type : 'post',
-                  dataType : "json",
-                  url : path,//请求的action路径
-                  success : function(data) { //请求成功后处理函数。
-                    //加工返回后的数据
-                    debugger;
-                    if(category==2){ //当选择端口号时
-                      var res = 'jvm最大内存值:' + data.memoryMaxSize+'<br/>';
-                      res+='jvm空闲内存值:'+data.memoryFreeSize+'<br/>';
-                      res+='jvm内存使用率：'+data.memoryPer+'<br/>';
-                      res+='空闲线程：'+data.ideThread+'<br/>';
-                      res+='总线程：'+data.totalThread+'<br/>';
-                      res+='每秒处理的线程数比率：'+data.throuhput+'<br/>';
-                      callback(ticket,res);
-                    }else if(category==4){//当选择用户名时
-                      var res = '当前链接数：'+data.processCount+'<br/>';
-                      res+='最大链接数：'+data.maxProcessCount+'<br/>';
-                      callback(ticket,res);
-                    }
-
-                  },
-                  error : function() {//请求失败处理函数
-                    $.messager.alert('警告', '请求失败！', 'warning');
-                  }
-                });
+                
                 if(category==2||category==4){ //当选择端口号与用户名时提示加载
                   return "loading";
                 }else{                   //其他情况显示所属图例以及名称
