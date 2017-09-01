@@ -458,7 +458,7 @@ export default {
         this.setOption({
           series: [{
             id: 'map',
-            type: 'scatter',
+            type: 'effectScatter',
             coordinateSystem: 'geo',
             data: convertData(vm.cityList),
             label: {
@@ -472,7 +472,7 @@ export default {
               }
             },
              symbolSize: function (val) {
-                return Math.max(val[2] / 1200, 8);
+                return Math.max(val[2] / 800, 5);
             },
              rippleEffect: {
                 brushType: 'stroke'
