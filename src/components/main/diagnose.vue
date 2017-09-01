@@ -202,9 +202,9 @@ export default {
       list2: [7, 12, 17, 22, 27, 32, 27, 22, 17, 12, 7, 12],
       list3: [4, 6, 8, 10, 8, 6, 4, 6, 8, 10, 8, 6],
       list4: [24, 40, 61, 75, 85, 87, 88, 89, 90, 91, 92, 93],
-      val_one: "",
-      val_two: "",
-      val_three: "",
+      val_one: "35",
+      val_two: "28",
+      val_three: "37",
       val_four: "",
     };
   },
@@ -326,28 +326,18 @@ export default {
         if(vm.val_one != ""){
           for (var i = 0; i < vm.list1.length; i++) {
             let item = parseInt(vm.list1[i]) + parseInt(vm.val_one);
-            if (item > 100) {
-              this.$message('大于100%');
-              return false;
-            } else {
               listOne.push(item);
-            }
           }
         }else{
           listOne =  vm.list1;
         }
 
-      
+
       console.log(listOne);
       if (vm.val_two != "") {
         for (var i = 0; i < vm.list2.length; i++) {
           let item = parseInt(vm.list2[i]) + parseInt(vm.val_two);
-          if (item > 100) {
-            this.$message('大于100%');
-            return false;
-          } else {
             listTwo.push(item);
-          }
         }
       }else{
         listTwo =  vm.list2;
@@ -357,12 +347,7 @@ export default {
       if (vm.val_three != "") {
         for (var i = 0; i < vm.list3.length; i++) {
           let item = parseInt(vm.list3[i]) + parseInt(vm.val_three);
-          if (item > 100) {
-            this.$message('大于100%');
-            return false;
-          } else {
             listThree.push(item);
-          }
         }
       }else{
         listThree = vm.list3;
@@ -371,13 +356,8 @@ export default {
       if(vm.val_four!=""){
           for (var i = 0; i < vm.list4.length; i++) {
             let item = parseInt(vm.list4[i]) + parseInt(vm.val_four);
-            if (item > 100) {
-              this.$message('大于100%');
-              return false;
-            } else {
               listFour.push(item);
-            }
-          } 
+          }
       }else{
          listFour =  vm.list4;
       }
