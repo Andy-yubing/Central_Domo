@@ -21,6 +21,7 @@ import fko from '../components/main/fko.vue'
 import huj from '../components/main/huj.vue'
 import reportList from '../components/main/reportList.vue'
 import groupList from '../components/main/grop_list.vue'
+import countryList from '../components/main/countryList.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -99,6 +100,11 @@ export default new Router({
           path: 'obor',
           name: 'obor',
           component: obor,
+        },
+        {
+          path: 'countryList/:id',
+          name: 'countryList',
+          component: countryList,
         },
         {
           path: 'environment',

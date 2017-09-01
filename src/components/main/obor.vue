@@ -32,11 +32,13 @@
               <div>净额(亿元)</div>
               <div>存量(亿元)</div>
             </li>
-            <li v-for="item in cityes">
-              <div>{{item.name}}</div>
-              <div>{{item.area}}</div>
-              <div>{{item.number}}</div>
-            </li>
+              <li  v-for="item in cityes" >
+                <router-link :to="{path:`/body/countryList/${item.id}`,query:{item:item}}" >
+                <div>{{item.name}}</div>
+                <div>{{item.area}}</div>
+                <div>{{item.number}}</div>
+                </router-link>
+              </li>
           </ul>
         </div>
 
@@ -155,51 +157,61 @@
           ],
           cityes:[
             {
+              id:1,
               name:'缅甸',
               area:'33172',
               number:'425873',
             },
             {
+              id:2,
               name:'埃塞俄比亚',
               area:'5421',
               number:'47589',
             },
             {
+              id:3,
               name:'波兰',
               area:'2510',
               number:'35211',
             },
             {
+              id:4,
               name:'捷克',
               area:'-1741',
               number:'22431',
             },
             {
+              id:5,
               name:'斯洛伐克',
               area:'0',
               number:'12779',
             },
             {
+              id:6,
               name:'阿塞拜疆',
               area:'136',
               number:'6370',
             },
             {
+              id:7,
               name:'克罗地亚',
               area:'0',
               number:'1182',
             },
             {
+              id:8,
               name:'波黑',
               area:'162',
               number:'775',
             },
             {
+              id:9,
               name:'阿尔巴尼亚',
               area:'0',
               number:'695',
             },
             {
+              id:10,
               name:'马其顿',
               area:'-1',
               number:'211',
@@ -283,12 +295,12 @@
       .by{
         position: absolute;
         top: 331px;
-        left: 192px;
+        left: 227px;
       }
       .md{
         position: absolute;
-        top: 231px;
-        right: 378px;
+        top: 273px;
+        right: 422px;
       }
     }
     .test1{
@@ -341,6 +353,9 @@
         li{
           height: 50px;
           line-height: 50px;
+          a{
+            color: black;
+          }
         }
         li:not(:first-child):hover {
           background: #C8ECC8;

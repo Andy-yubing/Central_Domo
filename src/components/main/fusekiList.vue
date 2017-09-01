@@ -2,7 +2,7 @@
     <div>
       <div class="wbg">
         <span>对标企业:</span>
-        <span class="corp">恒大地产集团有限公司</span>
+        <span class="corp">中国中材集团有限公司</span>
         VS
         <span class="corp" v-show="isHas" v-for="corp in corps">{{corp}}</span>
         <el-button type="primary" class="g_bg" @click="dialogFormVisible = true">添加对标企业</el-button>
