@@ -134,6 +134,11 @@ export default {
     return {
       kindList: [],
       cityList: [],
+      moneyList: [],
+      activeName:"",
+      industrial:"",
+      tit_1:"",
+      tit_2:"",
       message: [{
           name: '39分生态改革文件相继出台“任务清单”落实',
           website: '',
@@ -303,7 +308,7 @@ export default {
       this.oneCode = index
     },
     distribute(geoCoordMap) {
-       let vm = this;
+      let vm = this;
       let chinaDom = document.getElementsByClassName('fullView_china')[0];
       var myChart = echarts.init(chinaDom);
       var convertData = function(data) {
@@ -319,7 +324,6 @@ export default {
         }
         return res;
       }
-     
       let option = {
         backgroundColor: '#404a59',
         animation: true,
@@ -336,7 +340,7 @@ export default {
         },
         geo: {
           map: 'china',
-          top:'100',
+          top: '100',
           left: '150',
           center: [117.98561551896913, 31.205000490896193],
           zoom: 1,
@@ -383,7 +387,7 @@ export default {
         series: [{
           name: '2011年',
           type: 'bar',
-          data: [182, 234, 290, 104, 131, 630, 182, 234, 290, 104, 131, 630, 200]
+          data: vm.moneyList
         }]
       };
       myChart.on('click', renderBrushed);
@@ -417,7 +421,8 @@ export default {
       }, 0)
 
       function renderBrushed(params) {
-
+        vm.tit_1 = params.name+"热力图";
+        vm.tit_2 = params.name+"雷达图";
         vm.cityList = [];
         for (let i = 0; i < map_data.list.length; i++) {
           if (params.name == map_data.list[i].name) {
@@ -426,7 +431,17 @@ export default {
             }
           }
         }
-        console.log(vm.cityList);
+        switch(params.name) {
+          case "房地产":
+             vm.industrial = map_data.industryList.realty;
+            break;
+          case "交通运输":
+            vm.industrial = map_data.industryList.transportation;
+            break;
+            default:
+            vm.industrial = map_data.industryList.other;
+        }
+        vm.heatingPower();
         vm.radar();
         this.setOption({
           series: [{
@@ -455,71 +470,8 @@ export default {
         })
       }
     },
-   /* distribution() {
-      var vm = this;
-      let chinaDom = document.getElementsByClassName('fullView_china')[0];
-
-
-
-       myChart.on("click", function(params) {
-         if (params.componentSubType == "bar") {
-           this.setOption({
-             series: {
-               name: 'Top5',
-               data: convertData(geoData.sort(function(a, b) {
-                 return b.value - a.value;
-               }).slice(0, 5)),
-             }
-           });
-           if(params.name=="房地产"){
-             vm.heatData=[
-               [0,0,221],[0,1,953],[0,2,425],[0,3,444],[0,4,740],[0,5,738],[0,6,603],[0,7,1000],[0,8,380],[0,9,806],[0,10,809],[0,11,390],
-               [1,0,183],[1,1,676],[1,2,402],[1,3,579],[1,4,427],[1,5,291],[1,6,118],[1,7,107],[1,8,803],[1,9,756],[1,10,838],[1,11,625],
-               [2,0,713],[2,1,555],[2,2,243],[2,3,578],[2,4,599],[2,5,223],[2,6,222],[2,7,159],[2,8,335],[2,9,165],[2,10,484],[2,11,237],
-               [3,0,147],[3,1,792],[3,2,732],[3,3,685],[3,4,366],[3,5,773],[3,6,592],[3,7,284],[3,8,234],[3,9,530],[3,10,283],[3,11,182],
-               [4,0,105],[4,1,926],[4,2,170],[4,3,373],[4,4,194],[4,5,707],[4,6,730],[4,7,362],[4,8,703],[4,9,755],[4,10,303],[4,11,490],
-               [5,0,236],[5,1,146],[5,2,818],[5,3,982],[5,4,377],[5,5,533],[5,6,529],[5,7,806],[5,8,884],[5,9,352],[5,10,963],[5,11,614],
-               [6,0,777],[6,1,519],[6,2,551],[6,3,949],[6,4,316],[6,5,743],[6,6,620],[6,7,0],[6,8,0],[6,9,0],[6,10,0],[6,11,0]
-             ];
-           }else{
-             vm.heatData=[
-               [0,0,1135],[0,1,1691],[0,2,1611],[0,3,1800],[0,4,1369],[0,5,1159],[0,6,565],[0,7,1622],[0,8,695],[0,9,1672],[0,10,470],[0,11,1483],
-               [1,0,1773],[1,1,1843],[1,2,1643],[1,3,1425],[1,4,758],[1,5,974],[1,6,1793],[1,7,1737],[1,8,1036],[1,9,1394],[1,10,1649],[1,11,815],
-               [2,0,1816],[2,1,1205],[2,2,811],[2,3,1305],[2,4,1127],[2,5,916],[2,6,904],[2,7,1357],[2,8,1445],[2,9,738],[2,10,1855],[2,11,1128],
-               [3,0,1464],[3,1,1124],[3,2,843],[3,3,1635],[3,4,1256],[3,5,1280],[3,6,1391],[3,7,468],[3,8,1824],[3,9,1310],[3,10,834],[3,11,318],
-               [4,0,1036],[4,1,1965],[4,2,1952],[4,3,1575],[4,4,1389],[4,5,663],[4,6,332],[4,7,1887],[4,8,1128],[4,9,711],[4,10,1245],[4,11,1977],
-               [5,0,320],[5,1,1360],[5,2,931],[5,3,1735],[5,4,1620],[5,5,908],[5,6,1958],[5,7,695],[5,8,1999],[5,9,519],[5,10,1398],[5,11,977],
-               [6,0,1017],[6,1,1639],[6,2,1513],[6,3,1976],[6,4,1739],[6,5,655],[6,6,1788],[6,7,0],[6,8,0],[6,9,0],[6,10,0],[6,11,0]
-             ];
-           }
-           vm.heatingPower();
-           return;
-         }
-         barData = barData.sort();
-         this.setOption({
-           yAxis: {
-             data: categoryData
-           },
-           xAxis: {
-             axisLabel: { show: !!0 }
-           },
-           //            title: {
-           //                id: 'statistic',
-           //                text: count ? '平均: ' + (sum / count).toFixed(4) : ''
-           //            },
-           series: {
-             id: 'bar',
-             data: barData.sort(function(a, b) {
-               return a - b;
-             })
-           }
-         })
-       })
-      myChart.setOption(option);
-    },*/
     heatingPower() {
       let chinaDom = echarts.init(document.getElementsByClassName('fullView_heatingPower')[0]);
-
       var hours = ['1月', '2月', '3月', '4月', '5月', '6月',
         '7月', '8月', '9月', '10月', '11月', '12月'
       ];
@@ -527,101 +479,9 @@ export default {
         '2014', '2015', '2016', '2017'
       ];
       /*房地产*/
-      var data = this.heatData;
-      /*交通运输*/
-      var data2 = [
-        [0, 0, 1135],
-        [0, 1, 1691],
-        [0, 2, 1611],
-        [0, 3, 1800],
-        [0, 4, 1369],
-        [0, 5, 1159],
-        [0, 6, 565],
-        [0, 7, 1622],
-        [0, 8, 695],
-        [0, 9, 1672],
-        [0, 10, 470],
-        [0, 11, 1483],
-        [1, 0, 1773],
-        [1, 1, 1843],
-        [1, 2, 1643],
-        [1, 3, 1425],
-        [1, 4, 758],
-        [1, 5, 974],
-        [1, 6, 1793],
-        [1, 7, 1737],
-        [1, 8, 1036],
-        [1, 9, 1394],
-        [1, 10, 1649],
-        [1, 11, 815],
-        [2, 0, 1816],
-        [2, 1, 1205],
-        [2, 2, 811],
-        [2, 3, 1305],
-        [2, 4, 1127],
-        [2, 5, 916],
-        [2, 6, 904],
-        [2, 7, 1357],
-        [2, 8, 1445],
-        [2, 9, 738],
-        [2, 10, 1855],
-        [2, 11, 1128],
-        [3, 0, 1464],
-        [3, 1, 1124],
-        [3, 2, 843],
-        [3, 3, 1635],
-        [3, 4, 1256],
-        [3, 5, 1280],
-        [3, 6, 1391],
-        [3, 7, 468],
-        [3, 8, 1824],
-        [3, 9, 1310],
-        [3, 10, 834],
-        [3, 11, 318],
-        [4, 0, 1036],
-        [4, 1, 1965],
-        [4, 2, 1952],
-        [4, 3, 1575],
-        [4, 4, 1389],
-        [4, 5, 663],
-        [4, 6, 332],
-        [4, 7, 1887],
-        [4, 8, 1128],
-        [4, 9, 711],
-        [4, 10, 1245],
-        [4, 11, 1977],
-        [5, 0, 320],
-        [5, 1, 1360],
-        [5, 2, 931],
-        [5, 3, 1735],
-        [5, 4, 1620],
-        [5, 5, 908],
-        [5, 6, 1958],
-        [5, 7, 695],
-        [5, 8, 1999],
-        [5, 9, 519],
-        [5, 10, 1398],
-        [5, 11, 977],
-        [6, 0, 1017],
-        [6, 1, 1639],
-        [6, 2, 1513],
-        [6, 3, 1976],
-        [6, 4, 1739],
-        [6, 5, 655],
-        [6, 6, 1788],
-        [6, 7, 0],
-        [6, 8, 0],
-        [6, 9, 0],
-        [6, 10, 0],
-        [6, 11, 0]
-      ];
-      data = data.map(function(item) {
-        return [item[1], item[0], item[2] || '-'];
-      });
-
       var option = {
         title: {
-          text: '产业热力图：  单位(亿元)'
+          text: this.tit_1
         },
         tooltip: {
           position: 'top'
@@ -656,7 +516,7 @@ export default {
         series: [{
           name: '产值',
           type: 'heatmap',
-          data: data,
+          data: this.industrial,
           label: {
             normal: {
               show: true
@@ -691,7 +551,7 @@ export default {
       let myChart = echarts.init(document.getElementsByClassName('fullView_two_left')[0]);
       let option = {
         title: {
-          text: '产业雷达图：  单位(亿元)'
+          text:  this.tit_2
         },
         tooltip: {},
         legend: {
@@ -783,7 +643,7 @@ export default {
           },
           data: [90665, 83837, 83132, 71332, 54072, 50001].reverse()
         }]
-      };;
+      };
       if (option && typeof option === "object") {
         myChart.setOption(option, true);
       }
@@ -800,16 +660,37 @@ export default {
     vm.heatingPower();
     vm.radar();
     vm.barList();
+
   },
   created() {
+    this.tit_1 = "智能制造热度图";
+    this.tit_2 = "智能制造雷达图";
     console.log(map_data);
+    let vm = this;
+    function sortNumber(a,b){
+       return a - b;
+    }
+    let list = [];
+    let item = 0;
     for (let i = 0; i < map_data.list.length; i++) {
-      this.kindList.push(map_data.list[i]['name']);
+      vm.kindList.push(map_data.list[i]['name']);
+      list.push(map_data.list[i]['money']);
     }
-    for (let i = 0; i < map_data.list[0].value.length; i++) {
-      this.cityList.push({ name: map_data.list[0].value[i].area, value: map_data.list[0].value[i].val });
+    vm.moneyList = list.sort(sortNumber);
+    console.log(vm.moneyList);
+    for (let i = 0; i < map_data.list.length; i++) {
+      if(map_data.list[i].money==vm.moneyList[map_data.list.length-1]){
+          item = i;
+      }
     }
-    console.log(this.cityList);
+    for (let i = 0; i < map_data.list[item].value.length; i++) {
+     vm.cityList.push({ name: map_data.list[item].value[i].area, value: map_data.list[item].value[i].val });
+    }
+     //默认展示房地产
+    this.industrial = map_data.industryList.other;
+    /*console.log(this.industrial);
+    console.log(this.moneyList);
+    console.log(this.cityList);*/
   },
 }
 
