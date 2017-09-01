@@ -24,7 +24,6 @@
       },
       methods:{
         addClass(index){
-          console.log(index);
            this.avtiveAdd = index;
         }
       }
@@ -54,7 +53,7 @@
       position: absolute;
       top: 20px;
       right: 70px;
-      color: #FFF; 
+      color: #FFF;
       height: 20px;
       img{
         width: 100%;

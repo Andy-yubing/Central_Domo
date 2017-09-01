@@ -367,7 +367,7 @@ export default {
           top: 40,
           bottom: 40,
           width: '30%',
-           
+
         },
         tooltip: {
           trigger: 'item',
@@ -426,7 +426,6 @@ export default {
              rippleEffect: {
                 brushType: 'stroke'
             },
-            coordinateSystem: 'geo',
           }]
         })
       }, 0)
@@ -483,7 +482,6 @@ export default {
                 borderWidth: 1
               }
             },
-            coordinateSystem: 'geo',
           }]
         })
       }
@@ -703,7 +701,7 @@ export default {
     function sortNumber(a, b) {
       return a - b;
     }
-   
+
     for (let i = 0; i < vm.sortList(map_data.list).length; i++) {
      vm.moneyList[i] = {};
      vm.moneyList[i].name = vm.sortList(map_data.list)[i].name;
