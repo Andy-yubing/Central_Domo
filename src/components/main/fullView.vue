@@ -342,7 +342,7 @@ export default {
         geo: {
           map: 'china',
           top: '100',
-          left: '150',
+          left: '180',
           center: [117.98561551896913, 31.205000490896193],
           zoom: 1,
           label: {
@@ -451,7 +451,6 @@ export default {
           default:
             vm.industrial = map_data.industryList.other;
         }
-        console.log(vm.cityList);
         vm.heatingPower();
         vm.radar();
         this.setOption({
@@ -695,7 +694,6 @@ export default {
   created() {
     this.tit_1 = "智能制造热度图";
     this.tit_2 = "智能制造雷达图";
-    console.log(map_data);
     let vm = this;
 
     function sortNumber(a, b) {
@@ -708,7 +706,6 @@ export default {
      vm.moneyList[i].value = vm.sortList(map_data.list)[i].money;
    }
     let list = [];
-    console.log(map_data);
     for (let i = 0; i < map_data.list.length; i++) {
       vm.kindList.push(map_data.list[i]['name']);
       for (let j = 0; j < map_data.list[i].value.length; j++) {
@@ -717,7 +714,6 @@ export default {
       }
     }
 
-    console.log(vm.cityList);
     //默认展示房地产
     this.industrial = map_data.industryList.realty;
   },

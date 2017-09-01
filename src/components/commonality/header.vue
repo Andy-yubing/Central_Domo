@@ -5,7 +5,7 @@
         <img src="../../images/logo.png" alt="">
       </div>
       <div class="header_list">
-        <router-link v-for="(item,index) in list" key="index" :to= "item.link" class="header_btn" @click.native="addClass(index)" :class="{active:avtiveAdd==index}">{{item.name}}</router-link>
+        <router-link id="a" v-for="(item,index) in list" key="index" :to= "item.link" class="header_btn" active-class="active">{{item.name}}</router-link>
       </div>
       <div class="login">
           <h5>登录/注册</h5>
@@ -18,7 +18,7 @@
   export default {
       data(){
         return {
-          list:[{name:"首页",link:"/"},{name:"管理洞察",link:"/body/look"},{name:"管理舆情",link:"/yuq"},{name:"管理风控",link:"/fko"},{name:"管理环境",link:"/huj"}],
+          list:[{name:"首页",link:"/home"},{name:"管理洞察",link:"/body"},{name:"管理舆情",link:"/yuq"},{name:"管理风控",link:"/fko"},{name:"管理环境",link:"/huj"}],
            avtiveAdd:0
         }
       },

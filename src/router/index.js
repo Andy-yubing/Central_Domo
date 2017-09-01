@@ -27,8 +27,12 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   base: __dirname,
-  routes: [{
-      path: '/',
+  routes: [
+    {
+      path: '',
+      redirect:'/home'
+    },{
+      path: '/home',
       name: "首页",
       component: homePage,
     },
@@ -55,7 +59,7 @@ export default new Router({
     {
       path: '/body',
       component: index,
-      redirect: '/body/look',
+      redirect:'/body/look',
       children: [{
           path: 'look',
           name: 'fullView',
