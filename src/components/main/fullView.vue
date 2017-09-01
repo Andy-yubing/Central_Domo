@@ -135,10 +135,11 @@ export default {
       kindList: [],
       cityList: [],
       moneyList: [],
-      activeName:"",
-      industrial:"",
-      tit_1:"",
-      tit_2:"",
+      radarData: [],
+      activeName: "",
+      industrial: "",
+      tit_1: "",
+      tit_2: "",
       message: [{
           name: '39分生态改革文件相继出台“任务清单”落实',
           website: '',
@@ -331,7 +332,7 @@ export default {
         animationEasing: 'cubicInOut',
         animationDurationUpdate: 1000,
         animationEasingUpdate: 'cubicInOut',
-        color: ['#3398DB'],
+        color: ['#ddb926'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -352,21 +353,24 @@ export default {
           itemStyle: {
             normal: {
               areaColor: '#323c48',
-              borderColor: '#111'
+              borderColor: '#111',
+
             },
             emphasis: {
               areaColor: '#2a333d'
             }
           }
         },
+
         grid: {
           right: 40,
           top: 40,
           bottom: 40,
-          width: '30%'
+          width: '30%',
+           
         },
         tooltip: {
-          trigger: 'item'
+          trigger: 'item',
         },
         xAxis: [{
           type: 'value',
@@ -387,11 +391,12 @@ export default {
         series: [{
           name: '2011年',
           type: 'bar',
-          data: vm.moneyList
+          data: vm.moneyList,
         }]
       };
       myChart.on('click', renderBrushed);
       myChart.setOption(option);
+
       setTimeout(function() {
         myChart.setOption({
           series: [{
@@ -415,14 +420,17 @@ export default {
                 borderColor: '#fff',
                 borderWidth: 1
               }
-            }
+            },
+             symbolSize: function (val) {
+                return Math.max(val[2] / 1200, 10);
+            },
           }]
         })
       }, 0)
 
       function renderBrushed(params) {
-        vm.tit_1 = params.name+"热力图";
-        vm.tit_2 = params.name+"雷达图";
+        vm.tit_1 = params.name + "热力图";
+        vm.tit_2 = params.name + "雷达图";
         vm.cityList = [];
         for (let i = 0; i < map_data.list.length; i++) {
           if (params.name == map_data.list[i].name) {
@@ -431,16 +439,17 @@ export default {
             }
           }
         }
-        switch(params.name) {
+        switch (params.name) {
           case "房地产":
-             vm.industrial = map_data.industryList.realty;
+            vm.industrial = map_data.industryList.realty;
             break;
           case "交通运输":
             vm.industrial = map_data.industryList.transportation;
             break;
-            default:
+          default:
             vm.industrial = map_data.industryList.other;
         }
+        console.log(vm.cityList);
         vm.heatingPower();
         vm.radar();
         this.setOption({
@@ -459,6 +468,9 @@ export default {
                 position: 'right',
                 show: true
               }
+            },
+             symbolSize: function (val) {
+                return Math.max(val[2] / 1200, 10);
             },
             itemStyle: {
               emphasis: {
@@ -551,7 +563,7 @@ export default {
       let myChart = echarts.init(document.getElementsByClassName('fullView_two_left')[0]);
       let option = {
         title: {
-          text:  this.tit_2
+          text: this.tit_2
         },
         tooltip: {},
         legend: {
@@ -570,10 +582,9 @@ export default {
           indicator: vm.cityList
         },
         series: [{
-          name: '产业雷达图',
           type: 'radar',
           data: [{
-            value: [1771, 16804, 16224, 18934]
+            value: vm.cityList
           }]
         }]
       };
@@ -651,6 +662,21 @@ export default {
         vm.$router.push({ path: 'groupList', query: { list: param.name } })
       });
       myChart.setOption(option);
+    },
+    sortList(array) {
+      var i = 0,
+        len = array.length,
+        j, d;
+      for (; i < len; i++) {
+        for (j = 0; j < len; j++) {
+          if (array[i].money < array[j].money) {
+            d = array[j];
+            array[j] = array[i];
+            array[i] = d;
+          }
+        }
+      }
+      return array;
     }
   },
   mounted() {
@@ -667,30 +693,29 @@ export default {
     this.tit_2 = "智能制造雷达图";
     console.log(map_data);
     let vm = this;
-    function sortNumber(a,b){
-       return a - b;
+
+    function sortNumber(a, b) {
+      return a - b;
     }
+   
+    for (let i = 0; i < vm.sortList(map_data.list).length; i++) {
+     vm.moneyList[i] = {};
+     vm.moneyList[i].name = vm.sortList(map_data.list)[i].name;
+     vm.moneyList[i].value = vm.sortList(map_data.list)[i].money;
+   }
     let list = [];
-    let item = 0;
+    console.log(map_data);
     for (let i = 0; i < map_data.list.length; i++) {
       vm.kindList.push(map_data.list[i]['name']);
-      list.push(map_data.list[i]['money']);
-    }
-    vm.moneyList = list.sort(sortNumber);
-    console.log(vm.moneyList);
-    for (let i = 0; i < map_data.list.length; i++) {
-      if(map_data.list[i].money==vm.moneyList[map_data.list.length-1]){
-          item = i;
+      for (let j = 0; j < map_data.list[i].value.length; j++) {
+        vm.cityList.push({ name: map_data.list[i].value[j].area, value: map_data.list[i].value[j].val });
+       // vm.radarData.push({ name: map_data.list[i].value[j].area});
       }
     }
-    for (let i = 0; i < map_data.list[item].value.length; i++) {
-     vm.cityList.push({ name: map_data.list[item].value[i].area, value: map_data.list[item].value[i].val });
-    }
-     //默认展示房地产
-    this.industrial = map_data.industryList.other;
-    /*console.log(this.industrial);
-    console.log(this.moneyList);
-    console.log(this.cityList);*/
+
+    console.log(vm.cityList);
+    //默认展示房地产
+    this.industrial = map_data.industryList.realty;
   },
 }
 
@@ -858,3 +883,5 @@ export default {
 }
 
 </style>
+
+
