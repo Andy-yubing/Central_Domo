@@ -2,7 +2,7 @@
     <div class="warPer clearFix">
       <div class="one test">
         <div class="by">
-          <span class="circle"></span>
+          <span class="circle circle1"></span>
           <span class="hide_text">
             <p>单位:万美元</p>
             <p>2015净额:705.25</p>
@@ -269,7 +269,10 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background-color: yellow;
+      }
+      .circle1{
+        background: url("../../images/circle.png") no-repeat center;
+        background-size: 100% 100%;
       }
       .hide_text{
         display: none;
@@ -300,7 +303,7 @@
       .md{
         position: absolute;
         top: 273px;
-        right: 422px;
+        right: 429px;
       }
     }
     .test1{

@@ -64,7 +64,6 @@
       float: left;
       width:67.5%;
       background-color: white;
-      margin-right: 2%;
       padding: 30px 80px;
       .hot_content{
         text-align: left;

@@ -38,7 +38,7 @@
         </div>
       </el-dialog>
     </div>
-    <input type="text" placeholder="请输入搜索内容" class="search_box"><!--
+    <input type="text" placeholder="请输入搜索内容" class="search_box" v-model="isSearch"><!--
     --><div class="search_btn" @click="search"><a href="javascript:;">搜索</a></div>
 
     <ul class="company">
@@ -79,7 +79,6 @@
         return {
           checkboxGroup1: ['上海'],
           TMTs: TMTOptions,
-
           checkAll: true,
           checkedCities: ['上海', '北京'],
           cities: cityOptions,
@@ -131,15 +130,20 @@
               property:'私营企业'
             }
           ],
-          tabNames:['新能源','建筑工程']
+          tabNames:['新能源','建筑工程'],
+          isSearch:''
         }
     },
     methods:{
       search(){
-        setTimeout(()=>{
-          this.isShow=true
-        },1000)
-        this.isHide=false
+        if(this.isSearch==""){
+          alert('输入内容不能为空')
+        }else{
+          setTimeout(()=>{
+            this.isShow=true
+          },1000)
+          this.isHide=false
+        }
       },
       addName(){
         this.dialogFormVisible = false
