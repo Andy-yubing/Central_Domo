@@ -271,14 +271,13 @@
               top:5
             },
             tooltip: {
+
             },
-            animationDurationUpdate: 1500,
-            animationEasingUpdate: 'quinticInOut',
             label: {
               normal: {
                 show: true,
                 textStyle: {
-                  fontSize: 12
+                  fontSize: 10
                 },
               }
             },
@@ -292,14 +291,14 @@
                 type: 'graph',
                 layout: 'force',
                 force : { //力引导图基本配置
-                  repulsion : 1000,//节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
-                  edgeLength :120,//边的两个节点之间的距离，这个距离也会受 repulsion。[10, 50] 。值越小则长度越长
+                  repulsion : 1500,//节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
+                  edgeLength :150,//边的两个节点之间的距离，这个距离也会受 repulsion。[10, 50] 。值越小则长度越长
                   layoutAnimation : true
                   //因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
                 },
                 symbolSize: 45,
                 focusNodeAdjacency: true,
-                roam: false,
+                roam: true,
                 categories: [{
                   name: '国家',
                   itemStyle: {
@@ -326,13 +325,12 @@
                   normal: {
                     show: true,
                     textStyle: {
-                      fontSize: 12
+                      fontSize: 10
                     },
                   }
                 },
                 edgeSymbol : [ 'none', 'triangle' ],
                 edgeSymbolSize : 10,
-
                 edgeLabel: {
                   normal: {
                     show: true,
@@ -351,10 +349,12 @@
                   name: '中工国际',
                   category: 2,
                   draggable: true,
+                  symbolSize : 55
                 }, {
                   name: '葛洲坝',
                   category: 2,
                   draggable: true,
+                  symbolSize : 55
                 }, {
                   name: '埃塞俄比亚',
                   draggable: true,
@@ -377,7 +377,7 @@
                   category: 1,
                   draggable: true,
                 }, {
-                  name: '运输',
+                  name: '铁路',
                   category: 1,
                   draggable: true,
                 }, {
@@ -392,6 +392,7 @@
                   name: '中国中铁',
                   category: 2,
                   draggable: true,
+                  symbolSize : 55
                 }, {
                     name: '轨道交通 ',
                     category: 1,
@@ -401,85 +402,123 @@
                   source: 0,
                   target: 4,
                   category: 0,
-                  value: '投资'
+                  value: '项目'
                 },{
-                  source: 1,
-                  target: 0,
-                  category: 1,
-                  value: '投资'
-                }, {
                   source: 0,
                   target: 5,
-                  value: '投资'
+                  category: 0,
+                  value: '项目'
                 },{
-                  source: 2,
-                  target: 0,
-                  value: '投资'
+                  source: 0,
+                  target: 6,
+                  category: 0,
+                  value: '项目'
                 },{
-                  source: 2,
-                  target: 3,
-                  value: '投资'
+                  source: 0,
+                  target: 7,
+                  category: 0,
+                  value: '项目'
                 },{
                   source: 0,
                   target: 8,
-                  value: '投资'
-                }, {
-                  source: 8,
-                  target: 5,
+                  category: 0,
                   value: '项目'
-                }, {
-                  source: 2,
-                  target: 10,
-                  value: '项目'
-                }, {
-                  source: 0,
-                  target: 7,
-                  value: '投资'
                 },{
-                  source: 6,
-                  target: 3,
-                  value: '投资'
-                }, {
-                  source: 4,
-                  target: 5,
-                  value: '投资'
-                }, {
-                  source: 9,
-                  target: 10,
-                  value: '投资'
-                }, {
                   source: 0,
                   target: 9,
+                  category: 0,
+                  value: '项目'
+                },{
+                  source: 1,
+                  target: 0,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 8,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 3,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 4,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 5,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 8,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 9,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 1,
+                  target: 12,
+                  category: 0,
                   value: '投资'
                 },{
                   source: 2,
-                  target: 7,
-                  value: '项目'
+                  target: 0,
+                  category: 0,
+                  value: '投资'
                 },{
-                    source: 6,
-                    target: 12,
-                    value: '项目'
-                }, {
-                    source: 11,
-                    target: 3,
-                    value: '项目'
+                  source: 2,
+                  target: 3,
+                  category: 0,
+                  value: '投资'
                 },{
-                    source: 1,
-                    target: 12,
-                    value: '项目'
-                  },{
-                  source: 1,
-                  target: 8,
-                  value: '项目'
+                  source: 2,
+                  target: 9,
+                  category: 0,
+                  value: '投资'
                 },{
-                  source: 0,
+                  source: 2,
+                  target: 4,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 11,
+                  target: 3,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 11,
                   target: 12,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 11,
+                  target: 10,
+                  category: 0,
+                  value: '投资'
+                },{
+                  source: 3,
+                  target: 10,
+                  category: 0,
                   value: '项目'
-                }, {
-                    source: 0,
-                    target: 12,
-                    value: '项目'
-                  }],
+                },{
+                  source: 3,
+                  target: 12,
+                  category: 0,
+                  value: '项目'
+                },{
+                  source: 3,
+                  target: 6,
+                  category: 0,
+                  value: '项目'
+                }],
                 lineStyle: {
                   normal: {
                     opacity: 0.9,
