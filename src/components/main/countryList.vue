@@ -185,7 +185,6 @@
               bottom: '3%',
               containLabel: true
             },
-
             xAxis: {
               type: 'category',
               boundaryGap: false,
@@ -194,7 +193,6 @@
             yAxis: {
               type: 'value'
             },
-
             series: [
               {
                 name:this.cityName,
@@ -257,7 +255,6 @@
               }
             ]
           };
-
           myChart2.setOption(option2);
         },
         tu3(){
@@ -530,7 +527,7 @@
               }
             ]
           };
-            myChart3.setOption(option3);
+          myChart3.setOption(option3);
 
         }
       },
