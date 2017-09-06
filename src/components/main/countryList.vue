@@ -163,7 +163,8 @@
               time:'2017/8/15'
             }
           ],
-          cityName:this.$route.query.item.name
+          cityName:this.$route.query.item.name,
+          cityName2:this.$route.query.item.name,
         }
       },
       methods:{
@@ -338,7 +339,7 @@
                   }
                 },
                 data: [{
-                  name: '缅甸',
+                  name: this.cityName,
                   category: 0,
                   draggable: true,
                   symbolSize : 70
@@ -353,7 +354,7 @@
                   draggable: true,
                   symbolSize : 55
                 }, {
-                  name: '埃塞俄比亚',
+                  name: this.cityName2,
                   draggable: true,
                   symbolSize : 70,
                   category: 0,
@@ -536,6 +537,7 @@
          if(this.cityes[i].id == this.$route.params.id){
            this.item = this.cityes[i]
            this.cityName = this.cityes[i].name
+           this.cityName2 = this.cityes[i+1].name
          }
        }
        this.tu1()

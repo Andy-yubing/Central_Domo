@@ -3,7 +3,7 @@
     <div class="label">
       <span v-for="tabName in tabNames">{{tabName}}</span>
       <el-button type="primary"  @click="dialogFormVisible = true" class="label_btn">+标签订阅</el-button>
-      <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-dialog title="添加标签" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="*标签名称" :label-width="formLabelWidth">
             <el-input v-model="form.name" auto-complete="off"  placeholder="请输入标签名称，长度为2-4个字符"></el-input>

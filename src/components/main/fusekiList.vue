@@ -2,13 +2,13 @@
     <div>
       <div class="wbg">
         <span>对标企业:</span>
-        <span class="corp">中国中材集团有限公司</span>
+        <span class="corp">{{item}}</span>
         VS
         <span class="corp" v-show="isHas" v-for="corp in corps">{{corp}}</span>
         <el-button type="primary" class="g_bg" @click="dialogFormVisible = true">添加对标企业</el-button>
-        <el-dialog title="企业名称" :visible.sync="dialogFormVisible">
+        <el-dialog title="添加对标企业" :visible.sync="dialogFormVisible">
           <el-form :model="form">
-            <el-form-item label="活动名称" :label-width="formLabelWidth">
+            <el-form-item label="企业名称" :label-width="formLabelWidth">
               <el-input v-model="form.name" auto-complete="off"></el-input>
             </el-form-item>
           </el-form>
@@ -78,6 +78,49 @@
           job:[],
           jobName:'',
           jobTittle:[],
+          company:[
+            {
+              id:1,
+              name:'万科企业股份有限公司',
+              area:'深圳',
+              number:'1000-9999人',
+              business:'地产',
+              property:'私营企业'
+            },
+            {
+              id:2,
+              name:'保利房地产集团',
+              area:'广州',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有企业'
+            },
+            {
+              id:3,
+              name:'绿地控股集团有限公司',
+              area:'上海',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有控股'
+            },
+            {
+              id:4,
+              name:'中国海外发展有限公司',
+              area:'香港',
+              number:'1000-9999人',
+              business:'地产',
+              property:'国有控股'
+            },
+            {
+              id:5,
+              name:'恒大地产集团有限公司',
+              area:'北京',
+              number:'1000-9999人',
+              business:'地产',
+              property:'私营企业'
+            }
+          ],
+          item:'',
         }
       },
       methods:{
@@ -133,6 +176,10 @@
                 }
               }
             },
+            legend: {
+              right:20,
+              data: [this.item,this.form.name]
+            },
             xAxis : [
               {
                 type : 'category',
@@ -147,7 +194,7 @@
             ],
             series : [
               {
-                name:'人数',
+                name:this.item,
                 type:'line',
                 stack: '总量',
                 smooth: true,
@@ -162,7 +209,7 @@
                 data:[120, 132, 101, 134, 90, 230, 210]
               },
               {
-                name:'人数',
+                name:this.form.name,
                 type:'line',
                 stack: '总量',
                 smooth: true,
@@ -192,6 +239,10 @@
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
               }
             },
+            legend: {
+              right:20,
+              data: [this.item,this.form.name]
+            },
             grid: {
               left: '3%',
               right: '4%',
@@ -214,12 +265,12 @@
             ],
             series : [
               {
-                name:'',
+                name:this.item,
                 type:'bar',
                 data:[2008, 34526, 68532]
               },
               {
-                name:'',
+                name:this.form.name,
                 type:'bar',
                 data:this.manage
               }
@@ -232,10 +283,10 @@
             title: {
               text: '学历分布对比'
             },
-//          legend: {
-//            right:20,
-//            data: ['中材集团']
-//          },
+            legend: {
+              right:20,
+              data: [this.item,this.form.name]
+            },
             color: ['#3398DB',this.color],
             tooltip : {
               trigger: 'axis',
@@ -265,12 +316,12 @@
             ],
             series : [
               {
-                name:'',
+                name:this.item,
                 type:'bar',
                 data:[1, 3025, 18956, 56894]
               },
               {
-                name:'',
+                name:this.form.name,
                 type:'bar',
                 data:this.schooling
               }
@@ -304,7 +355,7 @@
             },
             yAxis: {
               type: 'category',
-              data: ['恒大',this.jobName]
+              data: [this.item,this.form.name]
             },
             series: [
               {
@@ -376,10 +427,10 @@
             title: {
               text: '职称分布对比'
             },
-//          legend: {
-//            right:20,
-//            data: ['职称分布']
-//          },
+            legend: {
+              right:20,
+              data: [this.item,this.form.name]
+            },
             color: ['#3398DB',this.color],
             center:[10,50],
             tooltip : {
@@ -410,12 +461,12 @@
             ],
             series : [
               {
-                name:'',
+                name:this.item,
                 type:'bar',
                 data:[10, 52, 200, 334]
               },
               {
-                name:'',
+                name:this.form.name,
                 type:'bar',
                 data:this.jobTittle
               }
@@ -427,6 +478,16 @@
         }
       },
       mounted(){
+        if(this.$route.params.id ==6){
+          this.item = this.$route.query.formName
+        }else{
+          for(var i=0;i<this.company.length;i++){
+            if(this.company[i].id == this.$route.params.id){
+              this.item = this.company[i].name
+            }
+          }
+        }
+
         this.Play()
       },
 

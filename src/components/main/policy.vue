@@ -43,6 +43,11 @@
           </div>
         </ul>
         <ul class="con_msg">
+          <li id="first_li">
+            <div class="has_float ">产业政策</div>
+            <div class="has_float ">政策网址</div>
+            <div class="has_float ">发布时间</div>
+          </li>
           <li v-for="list in this.message">
             <div class="has_float text_left">{{list.name}}</div>
             <div class="has_float">{{list.website}}</div>
@@ -194,6 +199,10 @@
   }
   .con_msg{
     margin-top: 20px;
+    #first_li{
+      background:  #2d7662;
+      color: white;
+    }
     li:nth-of-type(odd){
       background-color: #f1f4fc;
     }

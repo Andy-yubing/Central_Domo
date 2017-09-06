@@ -138,6 +138,8 @@ export default {
       radarData: [],
       activeName: "",
       industrial: "",
+      radarName:[ { name: '北京'},{ name: '上海'},{ name: '广州'}],
+      radarVal:[21235,21351,7841],
       tit_1: "",
       tit_2: "",
       message: [{
@@ -176,8 +178,6 @@ export default {
           time: '8/4'
         }
       ],
-
-
       areas: [
         '物流', '旅游', '建筑工程', '公用事业', '电子', '石油石化', '军工', '投资', '新能源', 'TMT',
         '农业', '机械', '矿业', '建材', '科研', '金融', '冶金', '房地产', '现代服务', '煤炭'
@@ -333,12 +333,6 @@ export default {
         animationDurationUpdate: 1000,
         animationEasingUpdate: 'cubicInOut',
         color: ['#ddb926'],
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
         geo: {
           map: 'china',
           top: '100',
@@ -354,27 +348,45 @@ export default {
             normal: {
               areaColor: '#323c48',
               borderColor: '#111',
-
             },
             emphasis: {
               areaColor: '#2a333d'
             }
           }
         },
-
         grid: {
           right: 40,
           top: 40,
           bottom: 40,
           width: '30%',
-
         },
         tooltip: {
           trigger: 'item',
+          formatter:function (params) {
+            //console.log(params)
+            if(params.value==undefined){
+              return false;
+            }
+            if(params.value.length==3){
+
+              return '产值' +':'+ params.value[2];
+            }else{
+              return params.data.name +':'+params.value;
+            }
+
+          }
+        },
+        title:{
+          text:'产业排行   单位:(亿元)',
+          right:300,
+          textStyle: {
+            color: '#fff',
+          }
         },
         xAxis: [{
           type: 'value',
-          scale: true,
+          scale: false,
+          show:false,
           splitLine: { show: false },
           axisLine: { show: false },
           axisTick: { show: false },
@@ -405,9 +417,6 @@ export default {
             coordinateSystem: 'geo',
             data: convertData(vm.cityList),
             label: {
-              emphasis: {
-                show: false
-              },
               normal: {
                 formatter: '{b}',
                 position: 'right',
@@ -431,58 +440,65 @@ export default {
       }, 0)
 
       function renderBrushed(params) {
-        vm.tit_1 = params.name + "热力图";
-        vm.tit_2 = params.name + "雷达图";
-        vm.cityList = [];
-        for (let i = 0; i < map_data.list.length; i++) {
-          if (params.name == map_data.list[i].name) {
-            for (let j = 0; j < map_data.list[i].value.length; j++) {
-              vm.cityList.push({ name: map_data.list[i].value[j].area, value: map_data.list[i].value[j].val });
+          if(params.componentSubType!="bar"){
+             return false;
+          }
+          vm.tit_1 = params.name + "热力图 :单位(亿元)";
+          vm.tit_2 = params.name + "雷达图 :单位(亿元)";
+          vm.cityList = [];
+          for (let i = 0; i < map_data.list.length; i++) {
+            if (params.name == map_data.list[i].name) {
+              for (let j = 0; j < map_data.list[i].value.length; j++) {
+                vm.cityList.push({ name: map_data.list[i].value[j].area, value: map_data.list[i].value[j].val });
+                vm.radarName =vm.cityList
+              }
             }
           }
-        }
-        switch (params.name) {
-          case "房地产":
-            vm.industrial = map_data.industryList.realty;
-            break;
-          case "交通运输":
-            vm.industrial = map_data.industryList.transportation;
-            break;
-          default:
-            vm.industrial = map_data.industryList.other;
-        }
-        vm.heatingPower();
-        vm.radar();
-        this.setOption({
-          series: [{
-            id: 'map',
-            type: 'effectScatter',
-            coordinateSystem: 'geo',
-            data: convertData(vm.cityList),
-            label: {
-              emphasis: {
-                show: false
+          for(let a = 0;a < vm.cityList.length; a++){
+            vm.radarVal.push(vm.cityList[a].value)
+          }
+          switch (params.name) {
+            case "房地产":
+              vm.industrial = map_data.industryList.realty;
+              break;
+            case "交通运输":
+              vm.industrial = map_data.industryList.transportation;
+              break;
+            default:
+              vm.industrial = map_data.industryList.other;
+          }
+          vm.heatingPower();
+          vm.radar();
+          this.setOption({
+            series: [{
+              id: 'map',
+              type: 'effectScatter',
+              coordinateSystem: 'geo',
+              data: convertData(vm.cityList),
+              label: {
+                emphasis: {
+                  show: false
+                },
+                normal: {
+                  formatter: '{b}',
+                  position: 'right',
+                  show: true
+                }
               },
-              normal: {
-                formatter: '{b}',
-                position: 'right',
-                show: true
-              }
-            },
-             symbolSize: function (val) {
+              symbolSize: function (val) {
                 return Math.max(val[2] / 800, 5);
-            },
-             rippleEffect: {
+              },
+              rippleEffect: {
                 brushType: 'stroke'
-            },
-            itemStyle: {
-              emphasis: {
-                borderColor: '#fff',
-                borderWidth: 1
-              }
-            },
-          }]
-        })
+              },
+              itemStyle: {
+                emphasis: {
+                  borderColor: '#fff',
+                  borderWidth: 1
+                }
+              },
+            }]
+          })
       }
     },
     heatingPower() {
@@ -568,7 +584,9 @@ export default {
         title: {
           text: this.tit_2
         },
-        tooltip: {},
+        tooltip: {
+          trigger: 'item'
+        },
         legend: {
           show: false,
         },
@@ -582,12 +600,13 @@ export default {
               padding: [3, 5]
             }
           },
-          indicator: vm.cityList
+          indicator: vm.radarName
         },
         series: [{
           type: 'radar',
           data: [{
-            value: vm.cityList
+            name:'地区',
+            value: vm.radarVal
           }]
         }]
       };
@@ -596,12 +615,9 @@ export default {
     barList() {
       var vm = this;
       let myChart = echarts.init(document.getElementsByClassName('fullView_two_right')[0]);
-
-      //app.title = '世界人口总量 - 条形图';
-
       let option = {
         title: {
-          text: '产业组合热度'
+          text: '产业组合热度 单位:(亿元)'
         },
         tooltip: {
           trigger: 'axis',
@@ -692,8 +708,8 @@ export default {
 
   },
   created() {
-    this.tit_1 = "智能制造热度图";
-    this.tit_2 = "智能制造雷达图";
+    this.tit_1 = "房地产热力图 :单位(亿元)";
+    this.tit_2 = "房地产雷达图 :单位(亿元)";
     let vm = this;
 
     function sortNumber(a, b) {

@@ -91,7 +91,7 @@ export default new Router({
           component: fuseki,
         },
         {
-          path: 'fusekiList',
+          path: 'fusekiList/:id',
           name: 'fusekiList',
           component: fusekiList,
         },

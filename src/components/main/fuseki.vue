@@ -4,9 +4,20 @@
       <div class="bottom_line">
         <span>筛选条件:</span>
         <div class="R_box">
-          <router-link to="/body/fusekiList">
-            <el-button type="primary">企业对标</el-button>
-          </router-link>
+            <el-button type="primary" @click="dialogFormVisible = true">企业对标</el-button>
+            <el-dialog title="添加对标企业" :visible.sync="dialogFormVisible">
+              <el-form :model="form">
+                <el-form-item label="企业名称" :label-width="formLabelWidth">
+                  <el-input v-model="form.name" auto-complete="off"></el-input>
+                </el-form-item>
+              </el-form>
+              <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                <router-link :to="{path:`/body/fusekiList/6`,query:{formName:form.name}}">
+                  <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+                </router-link>
+              </div>
+            </el-dialog>
         </div>
       </div>
       <div class="clearFix classify">
@@ -65,7 +76,7 @@
          <div>{{item.business}}</div>
          <div>{{item.property}}</div>
          <div>
-           <router-link to="/body/fusekiList">
+           <router-link :to="{path:`/body/fusekiList/${item.id}`,query:{item:item}}">
              <span class="item_btn">对标</span>
            </router-link>
            <a href="javascript:;">
@@ -88,6 +99,19 @@
   export default {
     data() {
       return {
+        dialogFormVisible: false,
+        form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        formLabelWidth: '120px',
+
         checkAll: true,
         checkedCities: [],
         cities: Options,
@@ -109,6 +133,7 @@
         oneCode:0,
         company:[
           {
+            id:1,
             name:'万科企业股份有限公司',
             area:'深圳',
             number:'1000-9999人',
@@ -116,6 +141,7 @@
             property:'私营企业'
           },
           {
+            id:2,
             name:'保利房地产集团',
             area:'广州',
             number:'1000-9999人',
@@ -123,6 +149,7 @@
             property:'国有企业'
           },
           {
+            id:3,
             name:'绿地控股集团有限公司',
             area:'上海',
             number:'1000-9999人',
@@ -130,6 +157,7 @@
             property:'国有控股'
           },
           {
+            id:4,
             name:'中国海外发展有限公司',
             area:'香港',
             number:'1000-9999人',
@@ -137,6 +165,7 @@
             property:'国有控股'
           },
           {
+            id:5,
             name:'恒大地产集团有限公司',
             area:'北京',
             number:'1000-9999人',

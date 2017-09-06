@@ -89,7 +89,7 @@
 			<div class="home_content_bottom w">
 				<img src="../../images/content_bottom.png"  alt="">
 				<span>
-					<h5>中源数据合作协议</h5>
+					<h5>中源数聚合作协议</h5>
 					<p><img src="../../images/clircle.png" height="8" width="8" alt=""><a href="http://mp.weixin.qq.com/s?__biz=MzIwNjYyOTk4Mg==&mid=2247485867&idx=1&sn=4ee0d12c68e5f9f6d21a29dc169fafa4&chksm=971ff49aa0687d8c37e0d2d520011126f5a887e4fccd673b3dfbf1165759de24b4914dba160d&scene=0#rd">中源数聚“诺亚方舟”计划</a></p>
 					<p><img src="../../images/clircle.png" height="8" width="8" alt=""><a href="http://mp.weixin.qq.com/s?__biz=MzIwNjYyOTk4Mg==&mid=2247485810&idx=1&sn=7ac55c4432ca392d3bd8a1c544394ea5&chksm=971ff443a0687d55ab435a2d12af27b06bf633a4c9baf7d9aadcd2ed1ade04723a1f8b696ffc&scene=0#rd">中源数聚（北京）信息科技有限公司 渠道招募简章</a></p>
 					<p><img src="../../images/clircle.png" height="8" width="8" alt=""><a href="http://mp.weixin.qq.com/s?__biz=MzIwNjYyOTk4Mg==&mid=2247485799&idx=1&sn=a9c1d223ba5bfd17657e501272faa1fd&chksm=971ff456a0687d406d1163b8accca3d5f66aeb97a0d148d6baa0708c051147160993d8ab4d5d&scene=0#rd">中源数聚管理大数据业务介绍</a></p>
